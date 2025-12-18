@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./styles/index.css";
-import App from "./App";
+import "@/app/styles/index.css";
+import { ProviderRouter } from "@/app/providers/ProviderRouter";
+import { Suspense } from "react";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={"loading"}>
+      <ProviderRouter />
+    </Suspense>
   </StrictMode>,
 );
