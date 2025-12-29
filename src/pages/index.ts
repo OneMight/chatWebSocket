@@ -1,3 +1,4 @@
 import Home from "@/pages/ui/Home";
 import Auth from "@/pages/ui/Auth";
-export { Home, Auth };
+import { Profile } from "@/pages/ui/Profile";
+export { Home, Auth, Profile };

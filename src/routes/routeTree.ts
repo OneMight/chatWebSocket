@@ -1,3 +1,7 @@
-import { rootRouter, indexRouter, authRouter } from ".";
+import { rootRouter, indexRouter, authRouter, profileRouter } from ".";
 
-export const routeTree = rootRouter.addChildren([indexRouter, authRouter]);
+export const routeTree = rootRouter.addChildren([
+  indexRouter,
+  authRouter,
+  profileRouter,
+]);

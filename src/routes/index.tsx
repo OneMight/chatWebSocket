@@ -1,6 +1,6 @@
 import { createRoute, createRootRoute } from "@tanstack/react-router";
 import { ROUTES } from "../routesPath";
-import { Auth, Home } from "@/pages";
+import { Auth, Home, Profile } from "@/pages";
 import App from "@/app/App";
 
 const rootRouter = createRootRoute({
@@ -17,5 +17,10 @@ const authRouter = createRoute({
   path: ROUTES.AUTH,
   component: Auth,
 });
+const profileRouter = createRoute({
+  getParentRoute: () => rootRouter,
+  path: ROUTES.PROFILE,
+  component: Profile,
+});
 
-export { rootRouter, indexRouter, authRouter };
+export { rootRouter, indexRouter, authRouter, profileRouter };

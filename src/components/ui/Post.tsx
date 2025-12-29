@@ -19,7 +19,6 @@ interface PostProps {
 
 export function Post({ post }: PostProps) {
   const { user } = useGetUserById(post.userId);
-  console.log(post);
   return (
     <Card>
       <CardHeader>
