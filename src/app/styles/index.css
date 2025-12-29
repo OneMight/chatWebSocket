@@ -25,6 +25,11 @@ body {
   --black-text: #000000;
   --tag-bg: rgba(139, 168, 136, 10%);
   --tag-text: #8ba888;
+  --bg-auth-card: rgba(212, 115, 94, 80%);
+  --white-color: #ffffff;
+  --bg-input: #e8e3d8;
+  --text-subtitle: #a89f91;
+  --alert-error: #e91f1f;
 }
 .dark {
   --bg-app: #000;
@@ -39,4 +44,9 @@ body {
   --color-black-text: var(--black-text);
   --color-tag-text: var(--tag-text);
   --color-tag-bg: var(--tag-bg);
+  --color-bg-auth-card: var(--bg-auth-card);
+  --color-white-color: var(--white-color);
+  --color-bg-input: var(--bg-input);
+  --color-text-subtitle: var(--text-subtitle);
+  --color-alert-color: var(--alert-color);
 }
