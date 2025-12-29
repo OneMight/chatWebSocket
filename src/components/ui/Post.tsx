@@ -1,0 +1,72 @@
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/utils/Card";
+import type { PostData } from "@/api/conversation/queries";
+import { useGetUserById } from "@/api/users/queries";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import LikeIcon from "@/assets/like-icon.svg?react";
+import DislikeIcon from "@/assets/dislike-icon.svg?react";
+import { ButtonIcon } from "./ButtonIcon";
+
+interface PostProps {
+  post: PostData;
+}
+
+export function Post({ post }: PostProps) {
+  const { user } = useGetUserById(post.userId);
+  console.log(post);
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-black-text flex flex-row gap-2 items-center">
+          <Avatar>
+            <AvatarImage src={user?.image} />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          {user?.username}
+        </CardTitle>
+        <CardDescription>{post?.title}</CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        <p>{post.body}</p>
+        <div className="flex flex-row gap-3 items-center">
+          {post.tags.map((tag, index) => (
+            <div key={index} className="bg-tag-bg rounded-xl py-1 px-3">
+              <p className="text-tag-text ">{tag}</p>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+      <CardFooter className="flex gap-4">
+        <ButtonIcon initialCount={post.reactions.likes}>
+          {(isActive) => (
+            <LikeIcon
+              className={`size-5 transition-colors${
+                isActive
+                  ? "fill-red-600  stroke-red-600"
+                  : "fill-transparent stroke-black"
+              }`}
+            />
+          )}
+        </ButtonIcon>
+
+        <ButtonIcon initialCount={post.reactions.dislikes}>
+          {(isActive) => (
+            <DislikeIcon
+              className={`size-5 transition-colors ${
+                isActive
+                  ? "fill-black stroke-black"
+                  : "fill-transparent stroke-gray-500"
+              }`}
+            />
+          )}
+        </ButtonIcon>
+      </CardFooter>
+    </Card>
+  );
+}

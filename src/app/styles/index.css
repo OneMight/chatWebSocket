@@ -18,10 +18,13 @@ body {
 
 :root {
   --bg-app: #faf8f3;
-  --bg-header: #fff;
+  --bg-header: #fffdf9;
   --bg-button: #d4735e;
   --main-text-color: #ffffff;
   --hover-orange: #d46046;
+  --black-text: #000000;
+  --tag-bg: rgba(139, 168, 136, 10%);
+  --tag-text: #8ba888;
 }
 .dark {
   --bg-app: #000;
@@ -33,4 +36,7 @@ body {
   --color-bg-button: var(--bg-button);
   --color-text-main: var(--main-text-color);
   --color-hover-orange: var(--hover-orange);
+  --color-black-text: var(--black-text);
+  --color-tag-text: var(--tag-text);
+  --color-tag-bg: var(--tag-bg);
 }

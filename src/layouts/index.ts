@@ -1,2 +1,3 @@
 import Header from "./ui/Header";
-export { Header };
+import { Aside } from "./ui/Aside";
+export { Header, Aside };
