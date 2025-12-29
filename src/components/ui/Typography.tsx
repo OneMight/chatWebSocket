@@ -1,10 +1,13 @@
 type Typography = {
   children: string;
+  className?: string;
 };
 
-export function TypographyH3({ children }: Typography) {
+export function TypographyH3({ children, className }: Typography) {
   return (
-    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+    <h3
+      className={`${className} scroll-m-20 text-2xl font-semibold tracking-tight`}
+    >
       {children}
     </h3>
   );

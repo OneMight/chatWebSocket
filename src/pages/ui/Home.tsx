@@ -19,7 +19,7 @@ export default function Home() {
           <TypographyH3>Latest Conversations</TypographyH3>
         </div>
         <div className="w-full flex flex-col items-start gap-4">
-          <Button className="rounded-xl w-full">
+          <Button className="rounded-xl w-full cursor-pointer">
             <PlusIcon />
             Start a New Conversation
           </Button>
