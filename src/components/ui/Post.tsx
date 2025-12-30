@@ -24,7 +24,7 @@ export function Post({ post }: PostProps) {
       <CardHeader>
         <CardTitle className="text-black-text flex flex-row gap-2 items-center">
           <Avatar>
-            <AvatarImage src={user?.image} />
+            <AvatarImage alt="user-image" src={user?.image} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           {user?.username}
@@ -45,6 +45,7 @@ export function Post({ post }: PostProps) {
         <ButtonIcon initialCount={post.reactions.likes}>
           {(isActive) => (
             <LikeIcon
+              aria-label="like-icon"
               className={`size-5 transition-colors${
                 isActive
                   ? "fill-red-600  stroke-red-600"
@@ -57,6 +58,7 @@ export function Post({ post }: PostProps) {
         <ButtonIcon initialCount={post.reactions.dislikes}>
           {(isActive) => (
             <DislikeIcon
+              aria-label="dislike-icon"
               className={`size-5 transition-colors ${
                 isActive
                   ? "fill-black stroke-black"

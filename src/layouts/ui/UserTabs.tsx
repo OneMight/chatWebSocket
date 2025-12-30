@@ -1,7 +1,14 @@
 import { useGetPostsByUserId } from "@/api/conversation/queries";
 import { useAuth } from "@/app/context/UserContext";
-import { Post, Tabs, TabsContent, TabsList, TabsTrigger } from "@/components";
-
+import {
+  Button,
+  Post,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components";
+import PlusIcon from "@/assets/plus-icon.svg?react";
 export const UserTabs = () => {
   const context = useAuth();
   const { posts, isLoading } = useGetPostsByUserId(context?.user?.id);
@@ -20,7 +27,11 @@ export const UserTabs = () => {
           comments
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="posts">
+      <TabsContent value="posts" className="flex flex-col gap-5">
+        <Button className="w-full rounded-2xl text-lg cursor-pointer">
+          <PlusIcon />
+          Start a New Conversation
+        </Button>
         {posts?.posts ? (
           posts.posts.map((post) => <Post key={post.id} post={post} />)
         ) : (

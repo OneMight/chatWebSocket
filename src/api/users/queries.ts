@@ -14,6 +14,7 @@ export interface UserData {
   image: string;
   company: CompanyData;
   address: AdressData;
+  error?: unknown;
 }
 
 type AdressData = {
@@ -26,6 +27,11 @@ type UserAuthType = {
 type UserTokensType = {
   accessToken: string;
   refreshToken: string;
+};
+export type ChangeCredintionalsType = {
+  id: number | undefined;
+  username?: string | undefined;
+  lastname?: string | undefined;
 };
 
 export const useGetUserById = (id: number) => {
@@ -103,4 +109,24 @@ export const useVerifyToken = (accessToken: string | undefined) => {
     userError,
     isSuccess,
   };
+};
+export const updateUser = async ({
+  username,
+  id,
+  lastname,
+}: ChangeCredintionalsType): Promise<UserData | unknown> => {
+  try {
+    const response = await fetch(`https://dummyjson.com/users/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        lastname,
+        username,
+      }),
+    });
+    alert(`Current last name: ${lastname}, current username: ${username}`);
+    return response.json();
+  } catch (error) {
+    alert(error);
+    return error;
+  }
 };

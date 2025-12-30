@@ -3,4 +3,5 @@ import { Aside } from "./ui/Aside";
 import { AuthForm } from "./ui/AuthForm";
 import { AuthSide } from "./ui/AuthSide";
 import { ProfileTitle } from "./ui/ProfileTitle";
-export { Header, Aside, AuthForm, AuthSide, ProfileTitle };
+import { EditProfileDrawer } from "./ui/EditProfileDrawer";
+export { Header, Aside, AuthForm, AuthSide, ProfileTitle, EditProfileDrawer };

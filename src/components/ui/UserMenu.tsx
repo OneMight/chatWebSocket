@@ -31,7 +31,7 @@ export const UserMenu = () => {
     <DropdownMenu>
       <DropdownMenuTrigger className="cursor-pointer hover:shadow-xl w-10 bg-transparent hover:bg-transparent shadow-transparent">
         <Avatar>
-          <AvatarImage src={context?.user?.image} />
+          <AvatarImage alt="user-image" src={context?.user?.image} />
           <AvatarFallback>ME</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
@@ -50,7 +50,7 @@ export const UserMenu = () => {
             to={ROUTES.PROFILE}
             params={{ userId: String(context?.user?.id) }}
           >
-            <ProfileIcon />
+            <ProfileIcon aria-label="profile-icon" />
             My Profile
           </Link>
         </DropdownMenuItem>
@@ -62,7 +62,7 @@ export const UserMenu = () => {
           transition-all flex items-center w-full gap-2 justify-start p-0 has-[>svg]:px-1 "
               onClick={handleExit}
             >
-              <ExitIcon className="text-hover-orange" />
+              <ExitIcon aria-label="exit-icon" className="text-hover-orange" />
               <p>Exit</p>
             </Button>
           </DropdownMenuItem>

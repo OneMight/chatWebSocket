@@ -1,8 +1,7 @@
 import { useAuth } from "@/app/context/UserContext";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import LocationIcon from "@/assets/location-icon.svg?react";
-import SettingsIcon from "@/assets/settings-icon.svg?react";
-import { Button } from "@/components";
+import { EditProfileDrawer } from "./EditProfileDrawer";
 export const ProfileTitle = () => {
   const context = useAuth();
   const user = context?.user;
@@ -29,10 +28,7 @@ export const ProfileTitle = () => {
           {user?.address.country}
         </div>
       </div>
-      <Button className="bg-transparent hover:bg-transparent hover:shadow-transparent hover:text-hover-orange text-black-text cursor-pointer flex flex-row gap-2 items-center">
-        <SettingsIcon />
-        Edit Profile
-      </Button>
+      <EditProfileDrawer />
     </article>
   );
 };
