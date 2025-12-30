@@ -5,7 +5,7 @@ interface AuthContextType {
   userLoading: boolean;
   isAuthenticated: boolean;
   userError: boolean;
-  handleIsAuth: (value: boolean) => void;
+  setAccessToken: (token: string) => void;
 }
 export const AuthContext = createContext<AuthContextType | undefined>(
   undefined,

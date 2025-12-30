@@ -28,7 +28,7 @@ export function AuthForm() {
       if (response?.accessToken && response?.refreshToken) {
         document.cookie = `accessToken=${response.accessToken}`;
         document.cookie = `refreshToken=${response.refreshToken}`;
-        context?.handleIsAuth(true);
+        context?.setAccessToken(response.accessToken);
         navigate({ to: ROUTES.HOME });
       } else {
         console.log("invalidCredentionals");

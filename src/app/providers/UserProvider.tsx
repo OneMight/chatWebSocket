@@ -6,17 +6,14 @@ type ProviderProp = {
   children: React.ReactNode;
 };
 export function UserProvider({ children }: ProviderProp) {
-  const accessToken = handleGetToken("accessToken");
-  const { user, userError, userLoading } = useVerifyToken(accessToken);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
-    !!user && !userError,
-  );
-  const handleIsAuth = (value: boolean) => {
-    setIsAuthenticated(value);
-  };
+  const [accessToken, setAccessToken] = useState(handleGetToken("accessToken"));
+  const { user, userError, userLoading, isSuccess } =
+    useVerifyToken(accessToken);
+
+  const isAuthenticated = !!user && isSuccess;
   return (
     <AuthContext.Provider
-      value={{ user, userLoading, isAuthenticated, userError, handleIsAuth }}
+      value={{ user, userLoading, isAuthenticated, userError, setAccessToken }}
     >
       {children}
     </AuthContext.Provider>

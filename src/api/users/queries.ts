@@ -89,7 +89,7 @@ export const useVerifyToken = (accessToken: string | undefined) => {
     queryKey: ["verifyToken", accessToken],
     queryFn: getUser,
     enabled: !!accessToken,
-    staleTime: 1000 * 60 * 120,
+    staleTime: 0,
     gcTime: 1000,
   });
   return {

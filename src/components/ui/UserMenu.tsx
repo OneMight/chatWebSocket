@@ -21,7 +21,8 @@ export const UserMenu = () => {
   const handleExit = () => {
     deleteCookieToken("accessToken");
     deleteCookieToken("refreshToken");
-    context?.handleIsAuth(false);
+    context?.setAccessToken("");
+
     navigate({
       to: ROUTES.HOME,
     });
