@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/utils/Card";
+} from "@/components/ui/Card";
 import type { PostData } from "@/api/conversation/queries";
 import { useGetUserById } from "@/api/users/queries";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

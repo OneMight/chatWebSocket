@@ -1,6 +1,6 @@
 import { AlertCircleIcon } from "lucide-react";
 
-import { Alert, AlertDescription, AlertTitle } from "@/utils/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export const AlertMenu = () => {
   return (

@@ -1,5 +1,10 @@
 import { Button, TypographyH3 } from "@/components";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/utils/Card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
 import { AuthForm } from "@/layouts";
 import { useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
