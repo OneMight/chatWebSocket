@@ -6,7 +6,9 @@ type ProviderProp = {
   children: React.ReactNode;
 };
 export function UserProvider({ children }: ProviderProp) {
-  const [accessToken, setAccessToken] = useState(handleGetToken("accessToken"));
+  const [accessToken, setAccessToken] = useState<string>(
+    handleGetToken("accessToken") || "",
+  );
   const { user, userError, userLoading, isSuccess } =
     useVerifyToken(accessToken);
 

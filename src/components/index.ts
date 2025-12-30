@@ -6,6 +6,9 @@ import { ButtonIcon } from "./ui/ButtonIcon";
 import { AlertMenu } from "./ui/AlertMenu";
 import { UserMenu } from "./ui/UserMenu";
 import { Label } from "./ui/Label";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
+import { Separator } from "./ui/separator";
+import { Checkbox } from "./ui/checkbox";
 import {
   Form,
   FormItem,
@@ -40,6 +43,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { ScrollArea, ScrollBar };
 export {
   Button,
   Input,
@@ -49,8 +54,9 @@ export {
   AlertMenu,
   UserMenu,
   Label,
+  Separator,
+  Checkbox,
 };
-export { Tabs, TabsList, TabsTrigger, TabsContent };
 export {
   Form,
   FormItem,

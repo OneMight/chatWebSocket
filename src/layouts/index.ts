@@ -4,4 +4,13 @@ import { AuthForm } from "./ui/AuthForm";
 import { AuthSide } from "./ui/AuthSide";
 import { ProfileTitle } from "./ui/ProfileTitle";
 import { EditProfileDrawer } from "./ui/EditProfileDrawer";
-export { Header, Aside, AuthForm, AuthSide, ProfileTitle, EditProfileDrawer };
+import { CreateConversation } from "./ui/CreateConversation";
+export {
+  Header,
+  Aside,
+  AuthForm,
+  AuthSide,
+  ProfileTitle,
+  EditProfileDrawer,
+  CreateConversation,
+};

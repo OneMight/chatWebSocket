@@ -1,21 +1,21 @@
 import { useGetPostsByUserId } from "@/api/conversation/queries";
 import { useAuth } from "@/app/context/UserContext";
-import {
-  Button,
-  Post,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components";
-import PlusIcon from "@/assets/plus-icon.svg?react";
+import { Post, Tabs, TabsContent, TabsList, TabsTrigger } from "@/components";
+
+import { CreateConversation } from "..";
 export const UserTabs = () => {
   const context = useAuth();
   const { posts, isLoading } = useGetPostsByUserId(context?.user?.id);
+  // const [allPosts, setAllPosts] = useState(posts?.posts);
+  // const handleAddPost = (newpost: PostData) => {
+  //   setAllPosts({
+  //     ...allPosts,
+  //     newpost,
+  //   });
+  // };
   if (isLoading) {
     return <p>loading</p>;
   }
-  console.log(posts?.posts);
 
   return (
     <Tabs defaultValue="posts" className="w-full flex justify-start">
@@ -28,19 +28,14 @@ export const UserTabs = () => {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="posts" className="flex flex-col gap-5">
-        <Button className="w-full rounded-2xl text-lg cursor-pointer">
-          <PlusIcon />
-          Start a New Conversation
-        </Button>
-        {posts?.posts ? (
+        <CreateConversation />
+        {posts ? (
           posts.posts.map((post) => <Post key={post.id} post={post} />)
         ) : (
           <p>This user never posted information</p>
         )}
       </TabsContent>
-      <TabsContent value="comments">
-        {/* {data?.comments ? <></> : <p>This user never didn't write comments</p>} */}
-      </TabsContent>
+      <TabsContent value="comments"></TabsContent>
     </Tabs>
   );
 };

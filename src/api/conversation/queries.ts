@@ -66,3 +66,26 @@ export const useGetPostsByUserId = (id: number | undefined) => {
     isError,
   };
 };
+
+export const useGetAllTags = () => {
+  const fetchTags = async (): Promise<string[]> => {
+    const response = await fetch("https://dummyjson.com/posts/tag-list");
+    return response.json();
+  };
+
+  const {
+    data: tags,
+    isLoading: tagsLoading,
+    isError: tagsError,
+  } = useQuery({
+    queryKey: ["fetchTags"],
+    queryFn: fetchTags,
+    staleTime: 1000 * 60 * 60,
+  });
+
+  return {
+    tags,
+    tagsError,
+    tagsLoading,
+  };
+};

@@ -29,9 +29,9 @@ type UserTokensType = {
   refreshToken: string;
 };
 export type ChangeCredintionalsType = {
-  id: number | undefined;
-  username?: string | undefined;
-  lastname?: string | undefined;
+  id?: number;
+  username?: string;
+  lastname?: string;
 };
 
 export const useGetUserById = (id: number) => {
@@ -79,7 +79,7 @@ export const getToken = async (
   }
 };
 
-export const useVerifyToken = (accessToken: string | undefined) => {
+export const useVerifyToken = (accessToken: string) => {
   const getUser = async (): Promise<UserData> => {
     const response = await fetch("https://dummyjson.com/user/me", {
       method: "GET",
