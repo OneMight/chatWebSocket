@@ -4,6 +4,7 @@ import { Input } from "./ui/Input";
 import { Post } from "./ui/Post";
 import { ButtonIcon } from "./ui/ButtonIcon";
 import { AlertMenu } from "./ui/AlertMenu";
+import { UserMenu } from "./ui/UserMenu";
 import {
   Form,
   FormItem,
@@ -27,4 +28,5 @@ export {
   FormMessage,
   FormField,
   AlertMenu,
+  UserMenu,
 };

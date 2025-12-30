@@ -14,11 +14,13 @@ import { getToken } from "@/api/users/queries";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
+import { useAuth } from "@/app/context/UserContext";
 export function AuthForm() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
   const form = useForm();
+  const context = useAuth();
   const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
@@ -26,6 +28,7 @@ export function AuthForm() {
       if (response?.accessToken && response?.refreshToken) {
         document.cookie = `accessToken=${response.accessToken}`;
         document.cookie = `refreshToken=${response.refreshToken}`;
+        context?.handleIsAuth(true);
         navigate({ to: ROUTES.HOME });
       } else {
         console.log("invalidCredentionals");

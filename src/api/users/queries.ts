@@ -6,7 +6,7 @@ interface CompanyData {
   title: string;
 }
 
-interface UserData {
+export interface UserData {
   id: number;
   firstName: string;
   lastName: string;
@@ -86,10 +86,10 @@ export const useVerifyToken = (accessToken: string | undefined) => {
     isError: userError,
     isSuccess,
   } = useQuery({
-    queryKey: ["verifyToken"],
+    queryKey: ["verifyToken", accessToken],
     queryFn: getUser,
     enabled: !!accessToken,
-    staleTime: 1000 * 60 * 30,
+    staleTime: 1000 * 60 * 120,
     gcTime: 1000,
   });
   return {
@@ -99,4 +99,3 @@ export const useVerifyToken = (accessToken: string | undefined) => {
     isSuccess,
   };
 };
-export const userLogout = () => {};

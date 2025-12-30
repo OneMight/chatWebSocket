@@ -13,7 +13,7 @@ export default function Home() {
   }
   const posts = postsResponse?.posts;
   return (
-    <div className="flex flex-row gap-6 justify-between w-full items-start">
+    <div className="flex flex-row gap-6 justify-between w-full items-start relative">
       <section className="w-2/3 flex gap-8 flex-col items-center">
         <div className=" w-full flex flex-row items-center justify-start">
           <TypographyH3>Latest Conversations</TypographyH3>
