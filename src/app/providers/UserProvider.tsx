@@ -13,7 +13,13 @@ export function UserProvider({ children }: ProviderProp) {
   const isAuthenticated = !!user && isSuccess;
   return (
     <AuthContext.Provider
-      value={{ user, userLoading, isAuthenticated, userError, setAccessToken }}
+      value={{
+        user,
+        userLoading,
+        isAuthenticated,
+        userError,
+        setAccessToken,
+      }}
     >
       {children}
     </AuthContext.Provider>

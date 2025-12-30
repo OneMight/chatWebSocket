@@ -13,7 +13,12 @@ export interface UserData {
   username: string;
   image: string;
   company: CompanyData;
+  address: AdressData;
 }
+
+type AdressData = {
+  country: string;
+};
 type UserAuthType = {
   username: string;
   password: string;
@@ -57,7 +62,7 @@ export const getToken = async (
       body: JSON.stringify({
         username: userCred.username,
         password: userCred.password,
-        expiresInMins: 30,
+        expiresInMins: 60,
       }),
       credentials: "omit",
     });

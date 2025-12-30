@@ -28,10 +28,10 @@ export const UserMenu = () => {
     });
   };
   return (
-    <DropdownMenu className="cursor-pointer hover:shadow-xl w-10 bg-transparent hover:bg-transparent shadow-transparent">
-      <DropdownMenuTrigger>
+    <DropdownMenu>
+      <DropdownMenuTrigger className="cursor-pointer hover:shadow-xl w-10 bg-transparent hover:bg-transparent shadow-transparent">
         <Avatar>
-          <AvatarImage className="w-10" src={context?.user?.image} />
+          <AvatarImage src={context?.user?.image} />
           <AvatarFallback>ME</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
@@ -43,22 +43,23 @@ export const UserMenu = () => {
           <p>{context?.user?.username}</p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem className="rounded-xl hover:bg-bg-app px-1 py-2 transition-colors">
           <Link
             className="text-black-text flex flex-row gap-2
          items-center hover:text-hover-orange "
-            to={`${ROUTES.PROFILE}/${context?.user?.id}`}
+            to={ROUTES.PROFILE}
+            params={{ userId: String(context?.user?.id) }}
           >
             <ProfileIcon />
-            My Profile{" "}
+            My Profile
           </Link>
         </DropdownMenuItem>
         {context?.isAuthenticated && (
-          <DropdownMenuItem>
+          <DropdownMenuItem className="rounded-xl hover:bg-bg-app transition-colors ">
             <Button
               className="bg-transparent text-black-text
          hover:text-hover-orange hover:bg-transparent cursor-pointer
-          transition-all w-13 flex items-center justify-between p-0 has-[>svg]:px-0"
+          transition-all flex items-center w-full gap-2 justify-start p-0 has-[>svg]:px-1 "
               onClick={handleExit}
             >
               <ExitIcon className="text-hover-orange" />

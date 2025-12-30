@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/index";
 
 interface ButtonIconProps {
-  children: (isActive: boolean) => React.ReactNode; // Используем render-prop для смены иконок/цветов
+  children: (isActive: boolean) => React.ReactNode;
   initialCount: number;
 }
 

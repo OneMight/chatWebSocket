@@ -13,7 +13,7 @@ export default function Header() {
   };
   const context = useAuth();
   if (context?.userLoading || context?.userError) {
-    <p>loading</p>;
+    return <p>loading</p>;
   }
   return (
     <header className="w-full flex justify-between items-center relative">

@@ -14,6 +14,7 @@ import {
   FormMessage,
   FormField,
 } from "./ui/Form";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
 export {
   Button,
   Input,
@@ -29,4 +30,8 @@ export {
   FormField,
   AlertMenu,
   UserMenu,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
 };

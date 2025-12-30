@@ -13,7 +13,9 @@ export type PostData = {
   userId: number;
   reactions: Reactions;
 };
-
+export type UserPosts = {
+  posts: PostData[];
+};
 interface PostsResponse {
   posts: PostData[];
   limit: number;
@@ -38,5 +40,29 @@ export const useGetPosts = () => {
     postsResponse,
     postsLoading,
     postsError,
+  };
+};
+export const useGetPostsByUserId = (id: number | undefined) => {
+  const getPosts = async (): Promise<UserPosts> => {
+    const response = await fetch(
+      `https://dummyjson.com/users/${id}/posts?limit=5`,
+    );
+    return response.json();
+  };
+
+  const {
+    data: posts,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["getPosts", id],
+    queryFn: getPosts,
+    staleTime: 0,
+  });
+
+  return {
+    posts,
+    isLoading,
+    isError,
   };
 };
