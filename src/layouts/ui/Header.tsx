@@ -3,15 +3,8 @@ import Logo from "@/assets/logo-icon.svg?react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
 import ExitIcon from "@/assets/exit-icon.svg?react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/app/context/UserContext";
-import { useState } from "react";
 export default function Header() {
-  const [open, setOpen] = useState<boolean>(false);
-  const handleOpenModal = () => {
-    setOpen((prev) => !prev);
-  };
   const navigate = useNavigate();
   const handleDirectAuth = () => {
     navigate({
@@ -44,15 +37,7 @@ export default function Header() {
         placeholder="Search discussions..."
       />
       {context?.isAuthenticated ? (
-        <Button
-          onClick={handleOpenModal}
-          className="cursor-pointer hover:shadow-xl w-10 bg-transparent hover:bg-transparent shadow-transparent"
-        >
-          <Avatar>
-            <AvatarImage src={context.user?.image} />
-            <AvatarFallback>ME</AvatarFallback>
-          </Avatar>
-        </Button>
+        <UserMenu />
       ) : (
         <Button
           onClick={handleDirectAuth}
@@ -62,7 +47,6 @@ export default function Header() {
           Join us
         </Button>
       )}
-      {open && <UserMenu />}
     </header>
   );
 }
