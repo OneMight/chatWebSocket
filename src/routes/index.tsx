@@ -1,9 +1,16 @@
-import { createRoute, createRootRoute } from "@tanstack/react-router";
+import {
+  createRoute,
+  createRootRouteWithContext,
+} from "@tanstack/react-router";
 import { ROUTES } from "../routesPath";
 import { Auth, Home, Profile } from "@/pages";
 import App from "@/app/App";
+import { type AuthContextType } from "@/app/context/UserContext";
 
-const rootRouter = createRootRoute({
+interface MyRouterContext {
+  auth: AuthContextType;
+}
+const rootRouter = createRootRouteWithContext<MyRouterContext>()({
   component: () => <App />,
 });
 

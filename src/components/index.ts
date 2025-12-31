@@ -4,6 +4,11 @@ import { Input } from "./ui/Input";
 import { Post } from "./ui/Post";
 import { ButtonIcon } from "./ui/ButtonIcon";
 import { AlertMenu } from "./ui/AlertMenu";
+import { UserMenu } from "./ui/UserMenu";
+import { Label } from "./ui/Label";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
+import { Separator } from "./ui/separator";
+import { Checkbox } from "./ui/checkbox";
 import {
   Form,
   FormItem,
@@ -13,12 +18,46 @@ import {
   FormMessage,
   FormField,
 } from "./ui/Form";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { ScrollArea, ScrollBar };
 export {
   Button,
   Input,
   TypographyH3,
   Post,
   ButtonIcon,
+  AlertMenu,
+  UserMenu,
+  Label,
+  Separator,
+  Checkbox,
+};
+export {
   Form,
   FormItem,
   FormLabel,
@@ -26,5 +65,28 @@ export {
   FormDescription,
   FormMessage,
   FormField,
-  AlertMenu,
+};
+export {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+};
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
 };

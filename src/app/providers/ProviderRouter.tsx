@@ -1,7 +1,16 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { routeTree } from "@/routes/routeTree";
-const routes = createRouter({ routeTree });
+import { useAuth } from "../context/UserContext";
+
+const routes = createRouter({
+  routeTree,
+  context: {
+    auth: undefined!,
+  },
+});
 
 export const ProviderRouter = () => {
-  return <RouterProvider router={routes} />;
+  const auth = useAuth();
+
+  return <RouterProvider router={routes} context={{ auth }} />;
 };

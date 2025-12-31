@@ -6,14 +6,24 @@ interface CompanyData {
   title: string;
 }
 
-interface UserData {
+export interface UserData {
   id: number;
   firstName: string;
   lastName: string;
   username: string;
   image: string;
   company: CompanyData;
+  address: AdressData;
+  error?: unknown;
 }
+type PostUserDataType = {
+  id: number;
+  username: string;
+  image: string;
+};
+type AdressData = {
+  country: string;
+};
 type UserAuthType = {
   username: string;
   password: string;
@@ -21,6 +31,11 @@ type UserAuthType = {
 type UserTokensType = {
   accessToken: string;
   refreshToken: string;
+};
+export type ChangeCredintionalsType = {
+  id?: number;
+  username?: string;
+  lastname?: string;
 };
 
 export const useGetUserById = (id: number) => {
@@ -57,7 +72,7 @@ export const getToken = async (
       body: JSON.stringify({
         username: userCred.username,
         password: userCred.password,
-        expiresInMins: 30,
+        expiresInMins: 60,
       }),
       credentials: "omit",
     });
@@ -68,7 +83,7 @@ export const getToken = async (
   }
 };
 
-export const useVerifyToken = (accessToken: string | undefined) => {
+export const useVerifyToken = (accessToken: string) => {
   const getUser = async (): Promise<UserData> => {
     const response = await fetch("https://dummyjson.com/user/me", {
       method: "GET",
@@ -86,10 +101,10 @@ export const useVerifyToken = (accessToken: string | undefined) => {
     isError: userError,
     isSuccess,
   } = useQuery({
-    queryKey: ["verifyToken"],
+    queryKey: ["verifyToken", accessToken],
     queryFn: getUser,
     enabled: !!accessToken,
-    staleTime: 1000 * 60 * 30,
+    staleTime: 0,
     gcTime: 1000,
   });
   return {
@@ -99,4 +114,41 @@ export const useVerifyToken = (accessToken: string | undefined) => {
     isSuccess,
   };
 };
-export const userLogout = () => {};
+export const updateUser = async ({
+  username,
+  id,
+  lastname,
+}: ChangeCredintionalsType): Promise<UserData | unknown> => {
+  try {
+    const response = await fetch(`https://dummyjson.com/users/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        lastname,
+        username,
+      }),
+    });
+    alert(`Current last name: ${lastname}, current username: ${username}`);
+    return response.json();
+  } catch (error) {
+    alert(error);
+    return error;
+  }
+};
+export const useGetImageOfUser = (id: number) => {
+  const getUserImage = async (): Promise<PostUserDataType> => {
+    const response = await fetch(
+      `https://dummyjson.com/users/${id}?select=image,id,username`,
+    );
+    return response.json();
+  };
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["getUserImage"],
+    queryFn: getUserImage,
+    staleTime: 1000 * 60 * 60,
+  });
+  return {
+    data,
+    isLoading,
+    isError,
+  };
+};

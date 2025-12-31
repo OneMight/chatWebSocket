@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import type { PostData } from "@/api/conversation/queries";
-import { useGetUserById } from "@/api/users/queries";
+import { useGetImageOfUser } from "@/api/users/queries";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LikeIcon from "@/assets/like-icon.svg?react";
 import DislikeIcon from "@/assets/dislike-icon.svg?react";
@@ -18,16 +18,19 @@ interface PostProps {
 }
 
 export function Post({ post }: PostProps) {
-  const { user } = useGetUserById(post.userId);
+  const { data, isLoading } = useGetImageOfUser(post.userId);
+  if (isLoading) {
+    return <p>loading</p>;
+  }
   return (
     <Card>
       <CardHeader>
         <CardTitle className="text-black-text flex flex-row gap-2 items-center">
           <Avatar>
-            <AvatarImage src={user?.image} />
+            <AvatarImage alt="user-image" src={data?.image} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-          {user?.username}
+          {data?.username}
         </CardTitle>
         <CardDescription>{post?.title}</CardDescription>
       </CardHeader>
@@ -45,6 +48,7 @@ export function Post({ post }: PostProps) {
         <ButtonIcon initialCount={post.reactions.likes}>
           {(isActive) => (
             <LikeIcon
+              aria-label="like-icon"
               className={`size-5 transition-colors${
                 isActive
                   ? "fill-red-600  stroke-red-600"
@@ -57,6 +61,7 @@ export function Post({ post }: PostProps) {
         <ButtonIcon initialCount={post.reactions.dislikes}>
           {(isActive) => (
             <DislikeIcon
+              aria-label="dislike-icon"
               className={`size-5 transition-colors ${
                 isActive
                   ? "fill-black stroke-black"
