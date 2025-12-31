@@ -15,7 +15,10 @@ import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
 import { useAuth } from "@/app/context/UserContext";
-export function AuthForm() {
+interface AuthFormProp {
+  setError: (value: boolean) => void;
+}
+export function AuthForm({ setError }: AuthFormProp) {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
@@ -31,10 +34,10 @@ export function AuthForm() {
         context?.setAccessToken(response.accessToken);
         navigate({ to: ROUTES.HOME });
       } else {
-        console.log("invalidCredentionals");
+        setError(true);
       }
     } catch (error) {
-      console.log(error);
+      throw new Error("" + error);
     }
   };
   const handleSetUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
