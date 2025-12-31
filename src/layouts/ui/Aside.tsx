@@ -1,7 +1,11 @@
 import { Button, TypographyH3 } from "@/components";
-export const Aside = () => {
+import { cn } from "@/lib/utils";
+interface AsideProp {
+  className: string;
+}
+export const Aside = ({ className }: AsideProp) => {
   return (
-    <aside className="w-1/3">
+    <aside className={cn(className)}>
       <div className="bg-bg-button p-4 rounded-xl flex flex-col gap-3 items-start">
         <TypographyH3 className="text-text-main">Welcome Home! ☕️</TypographyH3>
         <p className="text-text-main text-xs leading-6">

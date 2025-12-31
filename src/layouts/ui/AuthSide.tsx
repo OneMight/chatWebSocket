@@ -3,7 +3,7 @@ import { TypographyH3 } from "@/components";
 
 export const AuthSide = () => {
   return (
-    <div className="w-1/2 flex flex-col justify-around gap-6 px-9 bg-bg-auth-card rounded-r-xl">
+    <div className="w-full md:w-1/2 p-8 flex flex-col justify-around gap-6  md:px-9 md:py-0 bg-bg-auth-card rounded-b-xl md:rounded-r-xl">
       <Logo fill="rbga(255,255,255 / 10%)" />
       <div className="flex flex-col gap-2">
         <TypographyH3 className="text-text-main">

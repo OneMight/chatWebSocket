@@ -16,8 +16,8 @@ export default function Auth() {
     navigate({ to: ROUTES.HOME });
   };
   return (
-    <main className="flex flex-row rounded-2xl w-full bg-white-color">
-      <Card className="border-transparent w-1/2 shadow-none flex flex-col p-9">
+    <main className="flex flex-col md:flex-row rounded-2xl w-full bg-white-color">
+      <Card className="border-transparent w-full md:w-1/2 shadow-none flex flex-col p-9">
         <CardHeader className="p-0">
           <Button
             className="bg-transparent text-black-text justify-between cursor-pointer hover:bg-transparent hover:text-bg-button w-30  has-[>svg]:px-0"
