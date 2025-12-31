@@ -14,7 +14,7 @@ export default function Home() {
   const posts = postsResponse?.posts;
   return (
     <div className="flex flex-row gap-6 justify-between w-full items-start relative">
-      <section className="w-2/3 flex gap-8 flex-col items-center">
+      <section className="w-full sm:w-2/3 flex gap-8 flex-col items-center">
         <div className=" w-full flex flex-row items-center justify-start">
           <TypographyH3>Latest Conversations</TypographyH3>
         </div>
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Aside />
+      <Aside className={"hidden sm:block sm:w-1/3"} />
     </div>
   );
 }
