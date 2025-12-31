@@ -15,6 +15,7 @@ export interface UserData {
   company: CompanyData;
   address: AdressData;
   error?: unknown;
+  message?: string;
 }
 type PostUserDataType = {
   id: number;
@@ -78,8 +79,7 @@ export const getToken = async (
     });
     return await response.json();
   } catch (error) {
-    console.log(error);
-    return undefined;
+    throw new Error("Error " + error);
   }
 };
 
@@ -92,7 +92,7 @@ export const useVerifyToken = (accessToken: string) => {
       },
       credentials: "omit",
     });
-    return await response.json();
+    return response.json();
   };
 
   const {
@@ -103,9 +103,10 @@ export const useVerifyToken = (accessToken: string) => {
   } = useQuery({
     queryKey: ["verifyToken", accessToken],
     queryFn: getUser,
+    retry: false,
     enabled: !!accessToken,
     staleTime: 0,
-    gcTime: 1000,
+    gcTime: 1000 * 60 * 30,
   });
   return {
     user,
@@ -130,8 +131,7 @@ export const updateUser = async ({
     alert(`Current last name: ${lastname}, current username: ${username}`);
     return response.json();
   } catch (error) {
-    alert(error);
-    return error;
+    throw new Error("Error " + error);
   }
 };
 export const useGetImageOfUser = (id: number) => {

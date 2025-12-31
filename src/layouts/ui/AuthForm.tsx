@@ -72,6 +72,7 @@ export function AuthForm() {
                     onChange={handleSetPassword}
                     value={password}
                     placeholder="********"
+                    autoComplete="false"
                     className="bg-bg-input border-none px-7"
                     type="password"
                   />
