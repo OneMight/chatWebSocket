@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
 interface Reactions {
   likes: number;
@@ -19,28 +19,26 @@ export type UserPosts = {
 interface PostsResponse {
   posts: PostData[];
   limit: number;
+  skip: number;
   total: number;
 }
 
 export const useGetPosts = () => {
-  const fetchPost = async (): Promise<PostsResponse> => {
-    const response = await fetch("https://dummyjson.com/posts/?limit=10");
-    return await response.json();
-  };
-  const {
-    data: postsResponse,
-    isError: postsError,
-    isLoading: postsLoading,
-  } = useQuery({
+  return useInfiniteQuery<PostsResponse>({
     queryKey: ["posts"],
-    queryFn: fetchPost,
-    staleTime: 0,
+    queryFn: async ({ pageParam = 0 }) => {
+      const response = await fetch(
+        `https://dummyjson.com/posts?limit=10&skip=${pageParam}`,
+      );
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    },
+    initialPageParam: 0,
+    getNextPageParam: (lastPage) => {
+      const nextSkip = lastPage.skip + lastPage.posts.length;
+      return nextSkip < lastPage.total ? nextSkip : undefined;
+    },
   });
-  return {
-    postsResponse,
-    postsLoading,
-    postsError,
-  };
 };
 export const useGetPostsByUserId = (id: number | undefined) => {
   const getPosts = async (userId: number): Promise<UserPosts> => {
