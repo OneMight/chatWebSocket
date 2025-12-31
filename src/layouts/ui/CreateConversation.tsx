@@ -82,7 +82,12 @@ function ProfileForm({ className }: ProfileFormType) {
   const { tags, tagsLoading } = useGetAllTags();
   const [selectedTags, setSelected] = useState<string[]>([]);
   const handleSelect = (tag: string) => {
-    setSelected([...selectedTags, tag]);
+    if (selectedTags.includes(tag)) {
+      const newTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
+      setSelected(newTags);
+    } else {
+      setSelected([...selectedTags, tag]);
+    }
   };
   if (tagsLoading) {
     return <p>loading</p>;

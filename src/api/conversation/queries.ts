@@ -43,9 +43,9 @@ export const useGetPosts = () => {
   };
 };
 export const useGetPostsByUserId = (id: number | undefined) => {
-  const getPosts = async (): Promise<UserPosts> => {
+  const getPosts = async (userId: number): Promise<UserPosts> => {
     const response = await fetch(
-      `https://dummyjson.com/users/${id}/posts?limit=5`,
+      `https://dummyjson.com/users/${userId}/posts?limit=5`,
     );
     return response.json();
   };
@@ -56,7 +56,8 @@ export const useGetPostsByUserId = (id: number | undefined) => {
     isError,
   } = useQuery({
     queryKey: ["getPosts", id],
-    queryFn: getPosts,
+    queryFn: () => getPosts(id!),
+    enabled: typeof id !== "undefined",
     staleTime: 0,
   });
 

@@ -5,18 +5,13 @@ import { Post, Tabs, TabsContent, TabsList, TabsTrigger } from "@/components";
 import { CreateConversation } from "..";
 export const UserTabs = () => {
   const context = useAuth();
+
   const { posts, isLoading } = useGetPostsByUserId(context?.user?.id);
-  // const [allPosts, setAllPosts] = useState(posts?.posts);
-  // const handleAddPost = (newpost: PostData) => {
-  //   setAllPosts({
-  //     ...allPosts,
-  //     newpost,
-  //   });
-  // };
-  if (isLoading) {
+
+  const allPosts = posts?.posts;
+  if (isLoading || context.userLoading) {
     return <p>loading</p>;
   }
-
   return (
     <Tabs defaultValue="posts" className="w-full flex justify-start">
       <TabsList>
@@ -29,8 +24,8 @@ export const UserTabs = () => {
       </TabsList>
       <TabsContent value="posts" className="flex flex-col gap-5">
         <CreateConversation />
-        {posts ? (
-          posts.posts.map((post) => <Post key={post.id} post={post} />)
+        {allPosts ? (
+          allPosts.map((post) => <Post key={post.id} post={post} />)
         ) : (
           <p>This user never posted information</p>
         )}
