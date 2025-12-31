@@ -5,9 +5,14 @@ export interface AuthContextType {
   userLoading: boolean;
   isAuthenticated: boolean;
   userError: boolean;
-  setAccessToken: (token: string) => void;
+  setAccessToken?: (token: string) => void;
 }
-export const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext = createContext<AuthContextType | null>({
+  user: undefined,
+  userLoading: true,
+  isAuthenticated: false,
+  userError: false,
+});
 
 export const useAuth = () => {
   const context = useContext(AuthContext);

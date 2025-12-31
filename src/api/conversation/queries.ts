@@ -57,7 +57,7 @@ export const useGetPostsByUserId = (id: number | undefined) => {
   } = useQuery({
     queryKey: ["getPosts", id],
     queryFn: () => getPosts(id!),
-    enabled: typeof id !== "undefined",
+    enabled: !!id,
     staleTime: 0,
   });
 
@@ -81,7 +81,8 @@ export const useGetAllTags = () => {
   } = useQuery({
     queryKey: ["fetchTags"],
     queryFn: fetchTags,
-    staleTime: 1000 * 60 * 60,
+    staleTime: 1000 * 60 * 20,
+    gcTime: 1000 * 60 * 20,
   });
 
   return {

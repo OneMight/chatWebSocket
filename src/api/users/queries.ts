@@ -16,7 +16,11 @@ export interface UserData {
   address: AdressData;
   error?: unknown;
 }
-
+type PostUserDataType = {
+  id: number;
+  username: string;
+  image: string;
+};
 type AdressData = {
   country: string;
 };
@@ -129,4 +133,22 @@ export const updateUser = async ({
     alert(error);
     return error;
   }
+};
+export const useGetImageOfUser = (id: number) => {
+  const getUserImage = async (): Promise<PostUserDataType> => {
+    const response = await fetch(
+      `https://dummyjson.com/users/${id}?select=image,id,username`,
+    );
+    return response.json();
+  };
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["getUserImage"],
+    queryFn: getUserImage,
+    staleTime: 1000 * 60 * 60,
+  });
+  return {
+    data,
+    isLoading,
+    isError,
+  };
 };
