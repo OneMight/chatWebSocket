@@ -9,6 +9,7 @@ import { Label } from "./ui/Label";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { Separator } from "./ui/separator";
 import { Checkbox } from "./ui/checkbox";
+import { SearchInput } from "./ui/SearchInput";
 import {
   Form,
   FormItem,
@@ -56,6 +57,7 @@ export {
   Label,
   Separator,
   Checkbox,
+  SearchInput,
 };
 export {
   Form,

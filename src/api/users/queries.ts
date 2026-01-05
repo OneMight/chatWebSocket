@@ -73,7 +73,7 @@ export const getToken = async (
       body: JSON.stringify({
         username: userCred.username,
         password: userCred.password,
-        expiresInMins: 60,
+        expiresInMins: 240,
       }),
       credentials: "omit",
     });

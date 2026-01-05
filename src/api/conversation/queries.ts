@@ -89,3 +89,27 @@ export const useGetAllTags = () => {
     tagsLoading,
   };
 };
+export const useSearchByInput = (title: string) => {
+  const fetchPosts = async (): Promise<PostsResponse> => {
+    const response = await fetch(
+      `https://dummyjson.com/posts/search?q=${title}&limit=0`,
+    );
+    return response.json();
+  };
+
+  const {
+    data: searchedPosts,
+    isLoading: postsLoading,
+    isError: postsError,
+  } = useQuery({
+    queryKey: ["fetchPosts", title],
+    queryFn: fetchPosts,
+    staleTime: 0,
+  });
+
+  return {
+    searchedPosts,
+    postsError,
+    postsLoading,
+  };
+};

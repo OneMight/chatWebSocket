@@ -1,9 +1,10 @@
-import { Button, Input, UserMenu } from "@/components";
+import { Button, UserMenu } from "@/components";
 import Logo from "@/assets/logo-icon.svg?react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
 import ExitIcon from "@/assets/exit-icon.svg?react";
 import { useAuth } from "@/app/context/UserContext";
+import { SearchInput } from "@/components";
 export default function Header() {
   const navigate = useNavigate();
   const handleDirectAuth = () => {
@@ -31,11 +32,7 @@ export default function Header() {
 
         <h1>CozyCorner</h1>
       </Link>
-
-      <Input
-        className="w-md hidden md:block"
-        placeholder="Search discussions..."
-      />
+      <SearchInput />
       {context?.isAuthenticated ? (
         <UserMenu />
       ) : (
