@@ -4,6 +4,8 @@ import { Post, Spinner, TypographyH3 } from "@/components";
 import { Aside } from "@/layouts";
 import { useGetPosts } from "@/api/conversation/queries";
 import { CreateConversation } from "@/layouts";
+import { ROUTES } from "@/routesPath";
+import { Link } from "@tanstack/react-router";
 
 export default function Home() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
@@ -14,7 +16,6 @@ export default function Home() {
       fetchNextPage();
     }
   }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
-
   if (status === "pending") return <Spinner className="size-10" />;
   const allPosts = data?.pages.flatMap((page) => page.posts) ?? [];
 
@@ -28,7 +29,13 @@ export default function Home() {
           <CreateConversation />
           <div className="w-full flex flex-col gap-3 items-center mb-4">
             {allPosts.map((post) => (
-              <Post key={post.id} post={post} />
+              <Link
+                key={post.id}
+                to={ROUTES.POSTPAGE}
+                params={{ postId: String(post.id) }}
+              >
+                <Post post={post} />
+              </Link>
             ))}
           </div>
           <div
@@ -36,7 +43,7 @@ export default function Home() {
             className="h-10 w-full flex justify-center items-center"
           >
             {isFetchingNextPage ? (
-              <p>Loading more conversations...</p>
+              <Spinner />
             ) : hasNextPage ? null : (
               <p className="text-tag-text">No more conversations to load</p>
             )}
