@@ -5,6 +5,8 @@ import { useSearchByInput } from "@/api/conversation/queries";
 import React from "react";
 import { ScrollArea } from "./scroll-area";
 import { Spinner } from "./spinner";
+import { Link } from "@tanstack/react-router";
+import { ROUTES } from "@/routesPath";
 
 export const SearchInput = () => {
   const [search, setSearch] = useState<string>("");
@@ -58,10 +60,14 @@ export const SearchInput = () => {
           ) : (
             searchedPosts?.posts.map((post) => (
               <React.Fragment key={post.id}>
-                <div className="flex flex-col gap-1 w-100 p-3">
+                <Link
+                  to={ROUTES.POSTPAGE}
+                  params={{ postId: String(post.id) }}
+                  className="flex flex-col gap-1 w-100 p-3"
+                >
                   <p className="font-bold  w-full truncate">{post.title}</p>
                   <p className=" w-full truncate">{post.body}</p>
-                </div>
+                </Link>
                 <Separator className="h-0.5 bg-black" />
               </React.Fragment>
             ))

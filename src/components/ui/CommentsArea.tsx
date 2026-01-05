@@ -2,7 +2,7 @@ import { useGetCommentsById } from "@/api/comments/querries";
 import { ROUTES } from "@/routesPath";
 import { useParams } from "@tanstack/react-router";
 import { Spinner } from "./spinner";
-import { Comment } from "./comment";
+import { Comment } from "./Comment";
 import { Textarea } from "./textarea";
 import { useAuth } from "@/app/context/UserContext";
 import { cn } from "@/lib/utils";
@@ -26,7 +26,7 @@ export const CommentsArea = () => {
             placeholder="Write your oppinion here!"
           />
           {data.comments.map((comm) => (
-            <Comment comm={comm} />
+            <Comment comm={comm} key={comm.id} />
           ))}
         </>
       ) : (

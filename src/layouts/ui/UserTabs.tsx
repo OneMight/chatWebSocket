@@ -35,8 +35,12 @@ export const UserTabs = () => {
         <CreateConversation />
         {allPosts ? (
           allPosts.map((post) => (
-            <Link to={ROUTES.POSTPAGE} params={{ postId: String(post.id) }}>
-              <Post key={post.id} post={post} />
+            <Link
+              to={ROUTES.POSTPAGE}
+              key={post.id}
+              params={{ postId: String(post.id) }}
+            >
+              <Post post={post} />
             </Link>
           ))
         ) : (
