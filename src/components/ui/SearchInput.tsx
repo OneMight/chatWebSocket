@@ -4,6 +4,7 @@ import { Separator } from "@radix-ui/react-dropdown-menu";
 import { useSearchByInput } from "@/api/conversation/queries";
 import React from "react";
 import { ScrollArea } from "./scroll-area";
+import { Spinner } from "./spinner";
 
 export const SearchInput = () => {
   const [search, setSearch] = useState<string>("");
@@ -53,7 +54,7 @@ export const SearchInput = () => {
           style={{ position: "absolute" }}
         >
           {postsLoading ? (
-            <p>loading</p>
+            <Spinner className="size-10" />
           ) : (
             searchedPosts?.posts.map((post) => (
               <React.Fragment key={post.id}>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { Post, TypographyH3 } from "@/components";
+import { Post, Spinner, TypographyH3 } from "@/components";
 import { Aside } from "@/layouts";
 import { useGetPosts } from "@/api/conversation/queries";
 import { CreateConversation } from "@/layouts";
@@ -15,7 +15,7 @@ export default function Home() {
     }
   }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
-  if (status === "pending") return <p>Loading...</p>;
+  if (status === "pending") return <Spinner className="size-10" />;
   const allPosts = data?.pages.flatMap((page) => page.posts) ?? [];
 
   return (

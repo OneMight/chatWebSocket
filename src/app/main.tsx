@@ -4,9 +4,10 @@ import "@/app/styles/index.css";
 import { ProviderRouter, QueryProvider } from "@/app/providers/";
 import { Suspense } from "react";
 import { UserProvider } from "./providers/UserProvider";
+import { Spinner } from "@/components";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Suspense fallback={"loading"}>
+    <Suspense fallback={<Spinner className="size-10" />}>
       <QueryProvider>
         <UserProvider>
           <ProviderRouter />

@@ -1,4 +1,4 @@
-import { Button, UserMenu } from "@/components";
+import { Button, Spinner, UserMenu } from "@/components";
 import Logo from "@/assets/logo-icon.svg?react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
@@ -14,7 +14,7 @@ export default function Header() {
   };
   const context = useAuth();
   if (context?.userLoading || context?.userError) {
-    return <p>loading</p>;
+    return <Spinner className="size-10" />;
   }
   return (
     <header className="w-full flex justify-between items-center relative">

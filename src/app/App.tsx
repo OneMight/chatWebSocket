@@ -4,6 +4,7 @@ import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "./context/UserContext";
 import { deleteCookieToken } from "@/utils/deleteCookieToken";
 import { useEffect } from "react";
+import { Spinner } from "@/components";
 export default function App() {
   const path = useLocation();
   const condition = path.href !== ROUTES.AUTH;
@@ -21,7 +22,7 @@ export default function App() {
     }
   }, [context?.user?.message, navigate, context]);
   if (context.userLoading) {
-    return <p>Loading session...</p>;
+    return <Spinner className="size-10" />;
   }
   return (
     <main

@@ -6,6 +6,7 @@ import {
   DialogFooter,
   ScrollArea,
   Separator,
+  Spinner,
 } from "@/components";
 import {
   Dialog,
@@ -146,7 +147,7 @@ function ProfileForm({ className }: ProfileFormType) {
     }
   };
   if (tagsLoading) {
-    return <p>loading</p>;
+    return <Spinner className="size-10" />;
   }
   return (
     <form className={cn("grid items-start gap-6", className)}>

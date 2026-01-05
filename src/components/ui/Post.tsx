@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LikeIcon from "@/assets/like-icon.svg?react";
 import DislikeIcon from "@/assets/dislike-icon.svg?react";
 import { ButtonIcon } from "./ButtonIcon";
+import { Spinner } from "./spinner";
 
 interface PostProps {
   post: PostData;
@@ -20,7 +21,7 @@ interface PostProps {
 export function Post({ post }: PostProps) {
   const { data, isLoading } = useGetImageOfUser(post.userId);
   if (isLoading) {
-    return <p>loading</p>;
+    return <Spinner className="size-10" />;
   }
   return (
     <Card>

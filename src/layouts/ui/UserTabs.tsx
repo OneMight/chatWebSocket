@@ -1,6 +1,13 @@
 import { useGetPostsByUserId } from "@/api/conversation/queries";
 import { useAuth } from "@/app/context/UserContext";
-import { Post, Tabs, TabsContent, TabsList, TabsTrigger } from "@/components";
+import {
+  Post,
+  Spinner,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components";
 
 import { CreateConversation } from "..";
 export const UserTabs = () => {
@@ -10,7 +17,7 @@ export const UserTabs = () => {
 
   const allPosts = posts?.posts;
   if (isLoading || context.userLoading) {
-    return <p>loading</p>;
+    return <Spinner className="size-10" />;
   }
   return (
     <Tabs defaultValue="posts" className="w-full flex justify-start">

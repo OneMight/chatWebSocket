@@ -10,6 +10,7 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { Separator } from "./ui/separator";
 import { Checkbox } from "./ui/checkbox";
 import { SearchInput } from "./ui/SearchInput";
+import { Spinner } from "./ui/spinner";
 import {
   Form,
   FormItem,
@@ -58,6 +59,7 @@ export {
   Separator,
   Checkbox,
   SearchInput,
+  Spinner,
 };
 export {
   Form,
