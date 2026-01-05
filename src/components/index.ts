@@ -11,6 +11,8 @@ import { Separator } from "./ui/separator";
 import { Checkbox } from "./ui/checkbox";
 import { SearchInput } from "./ui/SearchInput";
 import { Spinner } from "./ui/spinner";
+import { CommentsArea } from "./ui/CommentsArea";
+import { Textarea } from "./ui/textarea";
 import {
   Form,
   FormItem,
@@ -60,6 +62,8 @@ export {
   Checkbox,
   SearchInput,
   Spinner,
+  CommentsArea,
+  Textarea,
 };
 export {
   Form,

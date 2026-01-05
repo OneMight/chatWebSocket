@@ -10,7 +10,6 @@ import type { PostData } from "@/api/conversation/queries";
 import { useGetImageOfUser } from "@/api/users/queries";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LikeIcon from "@/assets/like-icon.svg?react";
-import DislikeIcon from "@/assets/dislike-icon.svg?react";
 import { ButtonIcon } from "./ButtonIcon";
 import { Spinner } from "./spinner";
 
@@ -54,19 +53,6 @@ export function Post({ post }: PostProps) {
                 isActive
                   ? "fill-red-600  stroke-red-600"
                   : "fill-transparent stroke-black"
-              }`}
-            />
-          )}
-        </ButtonIcon>
-
-        <ButtonIcon initialCount={post.reactions.dislikes}>
-          {(isActive) => (
-            <DislikeIcon
-              aria-label="dislike-icon"
-              className={`size-5 transition-colors ${
-                isActive
-                  ? "fill-black stroke-black"
-                  : "fill-transparent stroke-gray-500"
               }`}
             />
           )}

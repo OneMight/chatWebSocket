@@ -10,6 +10,8 @@ import {
 } from "@/components";
 
 import { CreateConversation } from "..";
+import { Link } from "@tanstack/react-router";
+import { ROUTES } from "@/routesPath";
 export const UserTabs = () => {
   const context = useAuth();
 
@@ -32,7 +34,11 @@ export const UserTabs = () => {
       <TabsContent value="posts" className="flex flex-col gap-5">
         <CreateConversation />
         {allPosts ? (
-          allPosts.map((post) => <Post key={post.id} post={post} />)
+          allPosts.map((post) => (
+            <Link to={ROUTES.POSTPAGE} params={{ postId: String(post.id) }}>
+              <Post key={post.id} post={post} />
+            </Link>
+          ))
         ) : (
           <p>This user never posted information</p>
         )}

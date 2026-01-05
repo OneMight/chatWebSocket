@@ -1,4 +1,8 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import {
+  useInfiniteQuery,
+  useQuery,
+  useSuspenseQuery,
+} from "@tanstack/react-query";
 
 interface Reactions {
   likes: number;
@@ -111,5 +115,27 @@ export const useSearchByInput = (title: string) => {
     searchedPosts,
     postsError,
     postsLoading,
+  };
+};
+export const useGetPostById = (id: number) => {
+  const getPostsById = async (): Promise<PostData> => {
+    const response = await fetch(`https://dummyjson.com/posts/${id}`);
+    return response.json();
+  };
+
+  const {
+    data: postData,
+    isLoading,
+    isError,
+  } = useSuspenseQuery({
+    queryKey: ["getPostsById", id],
+    queryFn: getPostsById,
+    staleTime: 1000 * 60 * 30,
+    gcTime: 1000 * 60 * 30,
+  });
+  return {
+    postData,
+    isError,
+    isLoading,
   };
 };

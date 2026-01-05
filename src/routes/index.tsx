@@ -3,7 +3,7 @@ import {
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { ROUTES } from "../routesPath";
-import { Auth, Home, Profile } from "@/pages";
+import { Auth, Conversation, Home, Profile } from "@/pages";
 import App from "@/app/App";
 import { type AuthContextType } from "@/app/context/UserContext";
 
@@ -29,5 +29,16 @@ const profileRouter = createRoute({
   path: ROUTES.PROFILE,
   component: Profile,
 });
+const conversationRouter = createRoute({
+  getParentRoute: () => rootRouter,
+  path: ROUTES.POSTPAGE,
+  component: Conversation,
+});
 
-export { rootRouter, indexRouter, authRouter, profileRouter };
+export {
+  rootRouter,
+  indexRouter,
+  authRouter,
+  profileRouter,
+  conversationRouter,
+};
