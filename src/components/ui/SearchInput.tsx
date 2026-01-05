@@ -62,7 +62,7 @@ export const SearchInput = () => {
                   <p className="font-bold  w-full truncate">{post.title}</p>
                   <p className=" w-full truncate">{post.body}</p>
                 </div>
-                <Separator className=" bg-black" />
+                <Separator className="h-0.5 bg-black" />
               </React.Fragment>
             ))
           )}
