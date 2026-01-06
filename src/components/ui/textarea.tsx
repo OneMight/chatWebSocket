@@ -17,11 +17,13 @@ function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   };
   const context = useAuth();
   const handleOnClick = () => {
-    postComment({
-      body: input,
-      userId: context.user.id,
-      postId: postId,
-    });
+    if (context.user) {
+      postComment({
+        body: input,
+        userId: context.user.id,
+        postId: postId,
+      });
+    }
   };
   return (
     <div className="relative w-full">

@@ -8,7 +8,7 @@ const quertyClient = new QueryClient({
     },
   },
 });
-type QueryProps = {
+export type QueryProps = {
   children: ReactNode;
 };
 

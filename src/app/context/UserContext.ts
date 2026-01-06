@@ -1,7 +1,7 @@
 import type { UserData } from "@/api/users/queries";
 import { useContext, createContext } from "react";
 export interface AuthContextType {
-  user: UserData;
+  user: UserData | undefined;
   userLoading: boolean;
   isAuthenticated: boolean;
   userError: boolean;

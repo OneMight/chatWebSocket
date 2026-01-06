@@ -37,6 +37,7 @@ export default function Header() {
         <UserMenu />
       ) : (
         <Button
+          data-testid="login-button"
           onClick={handleDirectAuth}
           className="hover:shadow-xl cursor-pointer"
         >
