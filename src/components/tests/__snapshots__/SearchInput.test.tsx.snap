@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Posts are opened correctly 1`] = `
+<div
+  class="absolute top-13 h-50 bg-white z-20 w-112.5 rounded-xl"
+  data-slot="scroll-area"
+  data-testid="OpenedSearch"
+  dir="ltr"
+  style="position: absolute; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;"
+>
+  <style>
+    [data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}
+  </style>
+  <div
+    class="focus-visible:ring-ring/50 absolute size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1"
+    data-radix-scroll-area-viewport=""
+    data-slot="scroll-area-viewport"
+    style="overflow-x: hidden; overflow-y: scroll;"
+  >
+    <div
+      style="min-width: 100%; display: table;"
+    />
+  </div>
+</div>
+`;

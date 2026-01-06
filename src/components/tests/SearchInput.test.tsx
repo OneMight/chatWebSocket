@@ -15,3 +15,11 @@ describe("Correct Search input component render", () => {
     expect(screen.getByTestId("OpenedSearch")).not.toBeUndefined();
   });
 });
+
+it("Posts are opened correctly", async () => {
+  render(<SearchInput />);
+  await userEvent.click(await screen.findByTestId("test-input"));
+  await userEvent.type(await screen.findByTestId("test-input"), "Bob");
+  const opened = screen.getByTestId("OpenedSearch");
+  expect(opened).toMatchSnapshot();
+});
