@@ -29,7 +29,10 @@ export const UserMenu = () => {
   };
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="cursor-pointer hover:shadow-xl w-10 bg-transparent hover:bg-transparent shadow-transparent">
+      <DropdownMenuTrigger
+        data-testid="open-modal"
+        className="cursor-pointer hover:shadow-xl w-10 bg-transparent hover:bg-transparent shadow-transparent"
+      >
         <Avatar>
           <AvatarImage alt="user-image" src={context?.user?.image} />
           <AvatarFallback>ME</AvatarFallback>
@@ -57,6 +60,7 @@ export const UserMenu = () => {
         {context?.isAuthenticated && (
           <DropdownMenuItem className="rounded-xl hover:bg-bg-app transition-colors ">
             <Button
+              data-testid="logout-button"
               className="bg-transparent text-black-text
          hover:text-hover-orange hover:bg-transparent cursor-pointer
           transition-all flex items-center w-full gap-2 justify-start p-0 has-[>svg]:px-1 "

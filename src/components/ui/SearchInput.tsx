@@ -43,6 +43,7 @@ export const SearchInput = () => {
   return (
     <div className="revative" ref={containerRef}>
       <Input
+        data-testid="test-input"
         className="w-md hidden md:block"
         placeholder="Search discussions..."
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -52,6 +53,7 @@ export const SearchInput = () => {
       />
       {condition && (
         <ScrollArea
+          data-testid="OpenedSearch"
           className="absolute top-13 h-50 bg-white z-20 w-112.5 rounded-xl"
           style={{ position: "absolute" }}
         >
