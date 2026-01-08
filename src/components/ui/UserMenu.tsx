@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
 import { Button } from "./Button";
 import { useNavigate } from "@tanstack/react-router";
-import { deleteCookieToken } from "@/utils/deleteCookieToken";
+import { deleteCookieToken } from "@/utils/cookiesFunc";
 import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 import {
   DropdownMenu,

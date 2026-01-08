@@ -1,4 +1,4 @@
-import { StrictMode, type ReactElement } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@/app/styles/index.css";
 import {
@@ -9,7 +9,6 @@ import {
 import { Suspense } from "react";
 import { UserProvider } from "./providers/UserProvider";
 import { Spinner } from "@/components";
-import { render, type RenderOptions } from "@testing-library/react";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -24,10 +23,3 @@ createRoot(document.getElementById("root")!).render(
     </Suspense>
   </StrictMode>,
 );
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper">,
-) => render(ui, { wrapper: QueryProvider, ...options });
-
-export * from "@testing-library/react";
-export { customRender as render };

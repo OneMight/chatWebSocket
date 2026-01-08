@@ -13,6 +13,7 @@ import { SearchInput } from "./ui/SearchInput";
 import { Spinner } from "./ui/spinner";
 import { CommentsArea } from "./ui/CommentsArea";
 import { Textarea } from "./ui/textarea";
+import { Chat } from "@/layouts/ui/Chat";
 import {
   Form,
   FormItem,
@@ -47,6 +48,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 export { Tabs, TabsList, TabsTrigger, TabsContent };
 export { ScrollArea, ScrollBar };
 export {
@@ -64,6 +71,7 @@ export {
   Spinner,
   CommentsArea,
   Textarea,
+  Chat,
 };
 export {
   Form,
@@ -97,4 +105,10 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
+};
+export {
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
 };

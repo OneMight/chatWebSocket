@@ -1,4 +1,4 @@
-import { render, screen } from "@/utils/test-utils";
+import { render, screen } from "@/utils/testUtils";
 import { SearchInput } from "../ui/SearchInput";
 import userEvent from "@testing-library/user-event";
 describe("Correct Search input component render", () => {
