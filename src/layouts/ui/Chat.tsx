@@ -91,7 +91,7 @@ export const Chat = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="text-black-text fixed bottom-4 right-4 cursor-pointer w-12 rounded-full bg-bg-button p-2">
+      <DropdownMenuTrigger className="text-black-text fixed bottom-4 right-4 cursor-pointer w-12 rounded-full bg-bg-button p-2 z-20">
         <SendMessageIcon className="w-8" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-0">

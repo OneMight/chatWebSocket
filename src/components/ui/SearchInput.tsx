@@ -55,7 +55,7 @@ export const SearchInput = () => {
       {condition && (
         <ScrollArea
           data-testid="OpenedSearch"
-          className="absolute top-13 h-50 bg-white z-20 w-112.5 rounded-xl"
+          className="absolute flex flex-col items-center justify-center top-13 h-50 bg-white z-20 w-112.5 rounded-xl"
           style={{ position: "absolute" }}
         >
           {postsLoading ? (

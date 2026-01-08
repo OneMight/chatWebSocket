@@ -108,13 +108,8 @@ export function CreateConversation() {
             </DrawerDescription>
           </DrawerHeader>
           <Activity>
-            <AddPostForm className="px-4" userId={context.user?.id} />
+            <AddPostForm className="px-4 mb-2" userId={context.user?.id} />
           </Activity>
-          <DrawerFooter className="pt-2">
-            <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter>
         </DrawerContent>
       ) : (
         <DrawerContent className="bg-white-color">
@@ -156,6 +151,7 @@ function AddPostForm({ className, userId }: ProfileFormType) {
   const handleSelect = (tag: string) => {
     if (selectedTags.includes(tag)) {
       const newTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
+      setSelected(newTags);
       setData((prev) => ({ ...prev, tags: newTags }));
     } else {
       setSelected([...selectedTags, tag]);

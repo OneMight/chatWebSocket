@@ -70,6 +70,8 @@ export const UserMenu = () => {
             </Button>
           </DropdownMenuItem>
         )}
+
+        <DropdownMenuSeparator />
       </DropdownMenuContent>
     </DropdownMenu>
   );
