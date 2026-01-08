@@ -55,7 +55,7 @@ const POST_MESSAGE = gql`
 export const Chat = () => {
   const context = useAuth();
   const [messageContent, setMessageContent] = useState("");
-  const { loading, data, refetch } = useQuery<GetMessagesData>(GET_MESSAGES);
+  const { data, refetch } = useQuery<GetMessagesData>(GET_MESSAGES);
   const [postMessage] = useMutation<SendMessageData, SendMessageVars>(
     POST_MESSAGE,
     {
@@ -88,7 +88,6 @@ export const Chat = () => {
       console.error(e);
     }
   };
-  if (loading) return <Spinner />;
 
   return (
     <DropdownMenu>

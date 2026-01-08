@@ -19,9 +19,9 @@ interface PostProps {
 
 export function Post({ post }: PostProps) {
   const { data, isLoading } = useGetImageOfUser(post.userId);
-  if (isLoading) {
-    return <Spinner className="size-10" />;
-  }
+  // if (isLoading) {
+  //   return <Spinner className="size-10" />;
+  // }
   return (
     <Card>
       <CardHeader>

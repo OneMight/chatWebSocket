@@ -150,7 +150,10 @@ function ProfileForm({ className }: ProfileFormType) {
     return <Spinner className="size-10" />;
   }
   return (
-    <form className={cn("grid items-start gap-6", className)}>
+    <form
+      className={cn("grid items-start gap-6", className)}
+      onSubmit={(e) => e.preventDefault()}
+    >
       <div className="grid gap-3">
         <Label htmlFor="title">Title</Label>
         <Input type="title" id="title" placeholder="title" />
