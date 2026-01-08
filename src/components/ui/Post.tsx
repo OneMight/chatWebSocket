@@ -11,17 +11,14 @@ import { useGetImageOfUser } from "@/api/users/queries";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LikeIcon from "@/assets/like-icon.svg?react";
 import { ButtonIcon } from "./ButtonIcon";
-import { Spinner } from "./spinner";
 
 interface PostProps {
   post: PostData;
 }
 
 export function Post({ post }: PostProps) {
-  const { data, isLoading } = useGetImageOfUser(post.userId);
-  // if (isLoading) {
-  //   return <Spinner className="size-10" />;
-  // }
+  const { data } = useGetImageOfUser(post.userId);
+
   return (
     <Card>
       <CardHeader>
