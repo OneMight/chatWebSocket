@@ -44,6 +44,7 @@ export const SearchInput = () => {
     <div className="revative" ref={containerRef}>
       <Input
         data-testid="test-input"
+        id="SearchInput"
         className="w-md hidden md:block"
         placeholder="Search discussions..."
         onChange={(e: ChangeEvent<HTMLInputElement>) =>

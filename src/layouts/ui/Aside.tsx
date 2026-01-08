@@ -1,4 +1,4 @@
-import { Button, TypographyH3 } from "@/components";
+import { Button, Chat, TypographyH3 } from "@/components";
 import { cn } from "@/lib/utils";
 interface AsideProp {
   className: string;
@@ -16,6 +16,7 @@ export const Aside = ({ className }: AsideProp) => {
           Read Guidlines
         </Button>
       </div>
+      <Chat />
     </aside>
   );
 };

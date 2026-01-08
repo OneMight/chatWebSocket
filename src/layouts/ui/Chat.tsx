@@ -99,6 +99,7 @@ export const Chat = () => {
           <ChatView data={data} />
           <div className="flex gap-2">
             <Input
+              id="SendMessage"
               className="border p-2 flex-1 rounded text-black"
               value={messageContent}
               onChange={(e) => setMessageContent(e.target.value)}

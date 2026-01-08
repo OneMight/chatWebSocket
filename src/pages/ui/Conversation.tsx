@@ -28,7 +28,7 @@ export const Conversation = () => {
         <CommentsArea />
       </section>
 
-      <Aside className={"hidden sm:block sm:w-1/3"} />
+      <Aside className={"hidden sm:flex sm:w-1/3  flex-col justify-between"} />
     </main>
   );
 };
