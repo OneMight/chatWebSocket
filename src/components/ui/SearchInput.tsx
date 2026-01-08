@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
-import { Input } from "./Input";
+import { Input } from "@/components/index";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import { useSearchByInput } from "@/api/conversation/queries";
 import React from "react";

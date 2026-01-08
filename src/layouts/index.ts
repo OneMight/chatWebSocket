@@ -5,6 +5,7 @@ import { AuthSide } from "./ui/AuthSide";
 import { ProfileTitle } from "./ui/ProfileTitle";
 import { EditProfileDrawer } from "./ui/EditProfileDrawer";
 import { CreateConversation } from "./ui/CreateConversation";
+import { Chat } from "./ui/Chat";
 export {
   Header,
   Aside,
@@ -13,4 +14,5 @@ export {
   ProfileTitle,
   EditProfileDrawer,
   CreateConversation,
+  Chat,
 };

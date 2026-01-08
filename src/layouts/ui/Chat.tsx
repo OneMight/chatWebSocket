@@ -3,7 +3,7 @@ import { Button, DropdownMenuContent, Input } from "@/components";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components";
 import { gql, ApolloClient } from "@apollo/client";
 import { useQuery, useMutation, useSubscription } from "@apollo/client/react";
-import { useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import SendMessageIcon from "@/assets/send-message-icon.svg?react";
 import { ChatView } from "./ChatView";
 type Message = {
@@ -102,9 +102,13 @@ export const Chat = () => {
               id="SendMessage"
               className="border p-2 flex-1 rounded text-black"
               value={messageContent}
-              onChange={(e) => setMessageContent(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setMessageContent(e.target.value)
+              }
               placeholder="Type a message..."
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+                e.key === "Enter" && handleSend()
+              }
             />
             <Button
               onClick={handleSend}

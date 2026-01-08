@@ -1,5 +1,9 @@
-import { Button, Chat, TypographyH3 } from "@/components";
+import { Button, Spinner, TypographyH3 } from "@/components";
 import { cn } from "@/lib/utils";
+import React, { Suspense } from "react";
+const Chat = React.lazy(() =>
+  import("@/layouts/").then((module) => ({ default: module.Chat })),
+);
 interface AsideProp {
   className: string;
 }
@@ -16,7 +20,9 @@ export const Aside = ({ className }: AsideProp) => {
           Read Guidlines
         </Button>
       </div>
-      <Chat />
+      <Suspense fallback={<Spinner />}>
+        <Chat />
+      </Suspense>
     </aside>
   );
 };
