@@ -51,7 +51,6 @@ export const UserMenu = () => {
             className="text-black-text flex flex-row gap-2
          items-center hover:text-hover-orange "
             to={ROUTES.PROFILE}
-            params={{ userId: String(context?.user?.id) }}
           >
             <ProfileIcon aria-label="profile-icon" />
             My Profile

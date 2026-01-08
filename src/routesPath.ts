@@ -1,6 +1,6 @@
 export const ROUTES = {
   HOME: "/",
   AUTH: "/auth",
-  PROFILE: "/$userId",
-  POSTPAGE: "/posts/$postId",
+  PROFILE: "/profile",
+  POSTPAGE: "/$postId",
 } as const;
