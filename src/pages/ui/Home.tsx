@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { Post, Spinner, TypographyH3 } from "@/components";
 import { Aside } from "@/layouts";
@@ -27,17 +27,20 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col items-center gap-4">
           <CreateConversation />
-          <div className="w-full flex flex-col gap-3 items-center mb-4">
-            {allPosts.map((post) => (
-              <Link
-                key={post.id}
-                to={ROUTES.POSTPAGE}
-                params={{ postId: String(post.id) }}
-              >
-                <Post post={post} />
-              </Link>
-            ))}
-          </div>
+          <Suspense fallback={<Spinner className="size-10" />}>
+            <div className="w-full flex flex-col gap-3 items-center mb-4">
+              {allPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  to={ROUTES.POSTPAGE}
+                  params={{ postId: String(post.id) }}
+                >
+                  <Post post={post} />
+                </Link>
+              ))}
+            </div>
+          </Suspense>
+
           <div
             ref={ref}
             className="h-10 w-full flex justify-center items-center"

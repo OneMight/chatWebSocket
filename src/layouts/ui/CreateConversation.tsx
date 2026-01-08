@@ -1,4 +1,4 @@
-import { Activity, useState } from "react";
+import { Activity, ChangeEvent, FormEvent, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   Button,
@@ -30,20 +30,24 @@ import { Input } from "@/components";
 import { Label } from "@/components";
 import PlusIcon from "@/assets/plus-icon.svg?react";
 import { useMediaQuery } from "@/hooks/useMedaiQuery";
-import { useGetAllTags } from "@/api/conversation/queries";
+import { AddPostFields, useGetAllTags } from "@/api/conversation/queries";
 import React from "react";
 import { useAuth } from "@/app/context/UserContext";
 import { useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
 import { DialogClose } from "@radix-ui/react-dialog";
+import { addPost } from "@/api/conversation/queries";
+
 export function CreateConversation() {
   const [open, setOpen] = useState<boolean>(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const context = useAuth();
   const navigate = useNavigate();
+
   const handleDirectToAuth = () => {
     navigate({ to: ROUTES.AUTH });
   };
+
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
@@ -63,7 +67,7 @@ export function CreateConversation() {
               </DialogDescription>
             </DialogHeader>
             <Activity>
-              <ProfileForm />
+              <AddPostForm userId={context.user?.id} />
             </Activity>
           </DialogContent>
         ) : (
@@ -104,7 +108,7 @@ export function CreateConversation() {
             </DrawerDescription>
           </DrawerHeader>
           <Activity>
-            <ProfileForm className="px-4" />
+            <AddPostForm className="px-4" userId={context.user?.id} />
           </Activity>
           <DrawerFooter className="pt-2">
             <DrawerClose asChild>
@@ -134,30 +138,58 @@ export function CreateConversation() {
 }
 type ProfileFormType = {
   className?: string;
+  userId: number | undefined;
 };
-function ProfileForm({ className }: ProfileFormType) {
+function AddPostForm({ className, userId }: ProfileFormType) {
   const { tags, tagsLoading } = useGetAllTags();
   const [selectedTags, setSelected] = useState<string[]>([]);
+  const [data, setData] = useState<AddPostFields>({
+    userId: userId,
+    body: "",
+    tags: [],
+    title: "",
+  });
+  const handleAddPost = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addPost(data);
+  };
   const handleSelect = (tag: string) => {
     if (selectedTags.includes(tag)) {
       const newTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
-      setSelected(newTags);
+      setData((prev) => ({ ...prev, tags: newTags }));
     } else {
       setSelected([...selectedTags, tag]);
+      setData((prev) => ({ ...prev, tags: selectedTags }));
     }
   };
   if (tagsLoading) {
     return <Spinner className="size-10" />;
   }
   return (
-    <form className={cn("grid items-start gap-6", className)}>
+    <form
+      className={cn("grid items-start gap-6", className)}
+      onSubmit={(e) => handleAddPost(e)}
+    >
       <div className="grid gap-3">
         <Label htmlFor="title">Title</Label>
-        <Input type="title" id="title" placeholder="title" />
+        <Input
+          type="title"
+          id="title"
+          placeholder="title"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setData((prev) => ({ ...prev, title: e.target.value }))
+          }
+        />
       </div>
       <div className="grid gap-3">
         <Label htmlFor="description">Description</Label>
-        <Input id="description" placeholder="description" />
+        <Input
+          id="description"
+          placeholder="description"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setData((prev) => ({ ...prev, body: e.target.value }))
+          }
+        />
       </div>
       <div className="flex flex-row gap-1 items-center  overflow-scroll">
         Tags{" "}

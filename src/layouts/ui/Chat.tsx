@@ -1,5 +1,5 @@
 import { useAuth } from "@/app/context/UserContext";
-import { Button, DropdownMenuContent, Input, Spinner } from "@/components";
+import { Button, DropdownMenuContent, Input } from "@/components";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components";
 import { gql, ApolloClient } from "@apollo/client";
 import { useQuery, useMutation, useSubscription } from "@apollo/client/react";
@@ -55,7 +55,7 @@ const POST_MESSAGE = gql`
 export const Chat = () => {
   const context = useAuth();
   const [messageContent, setMessageContent] = useState("");
-  const { loading, data, refetch } = useQuery<GetMessagesData>(GET_MESSAGES);
+  const { data, refetch } = useQuery<GetMessagesData>(GET_MESSAGES);
   const [postMessage] = useMutation<SendMessageData, SendMessageVars>(
     POST_MESSAGE,
     {
@@ -88,7 +88,6 @@ export const Chat = () => {
       console.error(e);
     }
   };
-  if (loading) return <Spinner />;
 
   return (
     <DropdownMenu>
@@ -100,6 +99,7 @@ export const Chat = () => {
           <ChatView data={data} />
           <div className="flex gap-2">
             <Input
+              id="SendMessage"
               className="border p-2 flex-1 rounded text-black"
               value={messageContent}
               onChange={(e) => setMessageContent(e.target.value)}

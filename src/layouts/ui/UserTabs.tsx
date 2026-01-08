@@ -14,8 +14,8 @@ import { Link } from "@tanstack/react-router";
 import { ROUTES } from "@/routesPath";
 export const UserTabs = () => {
   const context = useAuth();
-
-  const { posts, isLoading } = useGetPostsByUserId(context?.user?.id);
+  console.log(context.user?.id);
+  const { posts, isLoading } = useGetPostsByUserId(context.user?.id);
 
   const allPosts = posts?.posts;
   if (isLoading || context.userLoading) {

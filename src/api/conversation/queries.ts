@@ -26,7 +26,12 @@ interface PostsResponse {
   skip: number;
   total: number;
 }
-
+export type AddPostFields = {
+  title: string;
+  body: string;
+  tags: string[];
+  userId: number | undefined;
+};
 export const useGetPosts = () => {
   return useInfiniteQuery<PostsResponse>({
     queryKey: ["posts"],
@@ -138,4 +143,16 @@ export const useGetPostById = (id: number) => {
     isError,
     isLoading,
   };
+};
+export const addPost = async (data: AddPostFields) => {
+  await fetch("https://dummyjson.com/posts/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: data.title,
+      body: data.body,
+      tags: data.tags,
+      userId: data.userId,
+    }),
+  });
 };

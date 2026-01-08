@@ -20,6 +20,7 @@ export const CommentsArea = () => {
       {data.comments.length !== 0 ? (
         <>
           <Textarea
+            id="commentArea"
             aria-label="comment-text-area"
             className={cn("max-h-50 min-h-50 sm:min-h-16")}
             disabled={!context.isAuthenticated && true}
