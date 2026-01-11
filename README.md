@@ -1,4 +1,4 @@
-# Deploy: [chatWebSocket](https://chat-web-socket-gglgxp8px-onemights-projects.vercel.app/)
+# Deploy: [chatWebSocket](https://chat-web-socket-seven.vercel.app/)
 # Design: [Figma](https://www.figma.com/design/g9Y3NM30qyVDi8f00fvPsx/Magic-Patterns--Community-?node-id=3-2371&p=f&t=ooav4sZuyAh04lvU-0)
 
 # Description:
