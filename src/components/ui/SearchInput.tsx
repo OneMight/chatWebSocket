@@ -6,7 +6,7 @@ import React from "react";
 import { ScrollArea } from "./scroll-area";
 import { Spinner } from "./spinner";
 import { Link } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 
 export const SearchInput = () => {
   const [search, setSearch] = useState<string>("");

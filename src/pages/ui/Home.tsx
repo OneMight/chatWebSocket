@@ -4,7 +4,7 @@ import { Post, Spinner, TypographyH3 } from "@/components";
 import { Aside } from "@/layouts";
 import { useGetPosts } from "@/api/conversation/queries";
 import { CreateConversation } from "@/layouts";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { Link } from "@tanstack/react-router";
 
 export default function Home() {

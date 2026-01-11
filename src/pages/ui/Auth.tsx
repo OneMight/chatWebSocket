@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/Card";
 import { AuthForm } from "@/layouts";
 import { useNavigate } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import BackIcon from "@/assets/back-icon.svg?react";
 import { AuthSide } from "@/layouts";
 import { useState } from "react";

@@ -1,7 +1,7 @@
 import { Button, Spinner, UserMenu } from "@/components";
 import Logo from "@/assets/logo-icon.svg?react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import ExitIcon from "@/assets/exit-icon.svg?react";
 import { useAuth } from "@/app/context/UserContext";
 import { SearchInput } from "@/components";

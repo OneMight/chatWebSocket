@@ -5,7 +5,7 @@ import { useAuth } from "../context/UserContext";
 const routes = createRouter({
   routeTree,
   context: {
-    auth: undefined!,
+    auth: null!,
   },
 });
 

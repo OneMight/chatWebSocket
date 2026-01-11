@@ -2,7 +2,7 @@ import { useAuth } from "@/app/context/UserContext";
 import ProfileIcon from "@/assets/profile-icon.svg?react";
 import ExitIcon from "@/assets/exit-icon.svg?react";
 import { Link } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { Button } from "./Button";
 import { useNavigate } from "@tanstack/react-router";
 import { deleteCookieToken } from "@/utils/cookiesFunc";

@@ -2,7 +2,7 @@ import {
   createRoute,
   createRootRouteWithContext,
 } from "@tanstack/react-router";
-import { ROUTES } from "../routesPath";
+import { ROUTES } from "./routesPath";
 import App from "@/app/App";
 import { type AuthContextType } from "@/app/context/UserContext";
 import React from "react";

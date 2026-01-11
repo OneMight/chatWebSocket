@@ -11,11 +11,10 @@ import {
 
 import { CreateConversation } from "..";
 import { Link } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 export const UserTabs = () => {
   const context = useAuth();
-  console.log(context.user?.id);
-  const { posts, isLoading } = useGetPostsByUserId(context.user?.id);
+  const { posts, isLoading } = useGetPostsByUserId(context.user?.id || null);
 
   const allPosts = posts?.posts;
   if (isLoading || context.userLoading) {

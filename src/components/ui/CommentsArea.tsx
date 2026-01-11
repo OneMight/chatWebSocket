@@ -1,5 +1,5 @@
 import { useGetCommentsById } from "@/api/comments/querries";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { useParams } from "@tanstack/react-router";
 import { Spinner } from "./spinner";
 import { Comment } from "./Comment";

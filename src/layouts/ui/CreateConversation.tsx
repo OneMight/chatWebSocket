@@ -34,7 +34,7 @@ import { AddPostFields, useGetAllTags } from "@/api/conversation/queries";
 import React from "react";
 import { useAuth } from "@/app/context/UserContext";
 import { useNavigate } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { addPost } from "@/api/conversation/queries";
 
@@ -67,7 +67,7 @@ export function CreateConversation() {
               </DialogDescription>
             </DialogHeader>
             <Activity>
-              <AddPostForm userId={context.user?.id} />
+              <AddPostForm userId={context.user?.id || null} />
             </Activity>
           </DialogContent>
         ) : (
@@ -108,7 +108,10 @@ export function CreateConversation() {
             </DrawerDescription>
           </DrawerHeader>
           <Activity>
-            <AddPostForm className="px-4 mb-2" userId={context.user?.id} />
+            <AddPostForm
+              className="px-4 mb-2"
+              userId={context.user?.id || null}
+            />
           </Activity>
         </DrawerContent>
       ) : (
@@ -133,7 +136,7 @@ export function CreateConversation() {
 }
 type ProfileFormType = {
   className?: string;
-  userId: number | undefined;
+  userId: number | null;
 };
 function AddPostForm({ className, userId }: ProfileFormType) {
   const { tags, tagsLoading } = useGetAllTags();

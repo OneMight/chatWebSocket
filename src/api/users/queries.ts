@@ -65,7 +65,7 @@ export const useGetUserById = (id: number) => {
 };
 export const getToken = async (
   userCred: UserAuthType,
-): Promise<UserTokensType | undefined> => {
+): Promise<UserTokensType | null> => {
   try {
     const response = await fetch("https://dummyjson.com/user/login", {
       method: "POST",

@@ -7,7 +7,7 @@ import { useState, type ChangeEvent } from "react";
 import { postComment } from "@/api/comments/querries";
 import { useAuth } from "@/app/context/UserContext";
 import { useParams } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 
 function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   const [input, setInput] = useState<string>("");

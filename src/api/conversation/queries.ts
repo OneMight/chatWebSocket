@@ -30,7 +30,7 @@ export type AddPostFields = {
   title: string;
   body: string;
   tags: string[];
-  userId: number | undefined;
+  userId: number | null;
 };
 export const useGetPosts = () => {
   return useInfiniteQuery<PostsResponse>({
@@ -45,11 +45,11 @@ export const useGetPosts = () => {
     initialPageParam: 0,
     getNextPageParam: (lastPage) => {
       const nextSkip = lastPage.skip + lastPage.posts.length;
-      return nextSkip < lastPage.total ? nextSkip : undefined;
+      return nextSkip < lastPage.total ? nextSkip : null;
     },
   });
 };
-export const useGetPostsByUserId = (id: number | undefined) => {
+export const useGetPostsByUserId = (id: number | null) => {
   const getPosts = async (userId: number): Promise<UserPosts> => {
     const response = await fetch(
       `https://dummyjson.com/users/${userId}/posts?limit=5`,

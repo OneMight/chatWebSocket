@@ -3,7 +3,7 @@ import { type GetMessagesData } from "@/layouts/ui/Chat";
 import { convertDate } from "@/utils/timeConvert";
 import React from "react";
 interface ChatViewProps {
-  data: GetMessagesData | undefined;
+  data: GetMessagesData | null;
 }
 
 export const ChatView = React.memo(({ data }: ChatViewProps) => {

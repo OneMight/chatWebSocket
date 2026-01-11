@@ -1,5 +1,5 @@
 import { Button, CommentsArea, Post, Spinner } from "@/components";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { useNavigate, useParams } from "@tanstack/react-router";
 import BackIcon from "@/assets/back-icon.svg?react";
 import { Aside } from "@/layouts";

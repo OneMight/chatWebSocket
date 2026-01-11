@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { getToken } from "@/api/users/queries";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { useAuth } from "@/app/context/UserContext";
 interface AuthFormProp {
   setError: (value: boolean) => void;
@@ -37,7 +37,7 @@ export function AuthForm({ setError }: AuthFormProp) {
         setError(true);
       }
     } catch (error) {
-      throw new Error("" + error);
+      throw new Error(error as string);
     }
   };
   const handleSetUsername = (e: React.ChangeEvent<HTMLInputElement>) => {

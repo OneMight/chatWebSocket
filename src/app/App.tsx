@@ -1,5 +1,5 @@
 import { Header } from "@/layouts";
-import { ROUTES } from "@/routesPath";
+import { ROUTES } from "@/routes/routesPath";
 import { Outlet, useLocation } from "@tanstack/react-router";
 import { useAuth } from "./context/UserContext";
 import { Spinner } from "@/components";
