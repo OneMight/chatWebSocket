@@ -6,22 +6,25 @@ import { ButtonIcon } from "./ui/ButtonIcon";
 import { AlertMenu } from "./ui/AlertMenu";
 import { UserMenu } from "./ui/UserMenu";
 import { Label } from "./ui/Label";
-import { ScrollArea, ScrollBar } from "./ui/scroll-area";
-import { Separator } from "./ui/separator";
-import { Checkbox } from "./ui/checkbox";
+import { ScrollArea, ScrollBar } from "./ui/ScrollArea";
+import { Separator } from "./ui/Separator";
+import { Checkbox } from "./ui/Checkbox";
 import { SearchInput } from "./ui/SearchInput";
-import { Spinner } from "./ui/spinner";
+import { Spinner } from "./ui/Spinner";
 import { CommentsArea } from "./ui/CommentsArea";
-import { Textarea } from "./ui/textarea";
+import { Textarea } from "./ui/Textarea";
 import { Chat } from "@/layouts/ui/Chat";
 import * as FormComponents from "./ui/Form";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
-import * as DrawerComponents from "./ui/drawer";
-import * as DialogComponents from "./ui/dialog";
-import * as DropdownComponents from "./ui/dropdown-menu";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/Tabs";
+import * as DrawerComponents from "./ui/Drawer";
+import * as DialogComponents from "./ui/Dialog";
+import * as DropdownComponents from "./ui/DropdownMenu";
+import EditProfileForm from "./ui/EditProfileForm";
+import AddPostForm from "./ui/AddPostForm";
 export { Tabs, TabsList, TabsTrigger, TabsContent };
 export { ScrollArea, ScrollBar };
 export {
+  AddPostForm,
   Button,
   Input,
   TypographyH3,
@@ -37,6 +40,7 @@ export {
   CommentsArea,
   Textarea,
   Chat,
+  EditProfileForm,
   DrawerComponents,
   FormComponents,
   DialogComponents,

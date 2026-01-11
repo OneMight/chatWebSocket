@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { useGetImageOfUser } from "@/api/users/queries";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import LikeIcon from "@/assets/like-icon.svg?react";
 import { ButtonIcon } from "./ButtonIcon";
 import { PostData } from "@/api/conversation/queries";

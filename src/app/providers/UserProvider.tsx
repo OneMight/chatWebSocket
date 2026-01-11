@@ -16,7 +16,7 @@ export function UserProvider({ children }: ProviderProp) {
   return (
     <AuthContext.Provider
       value={{
-        user,
+        user: user ?? null,
         userLoading,
         isAuthenticated,
         userError,

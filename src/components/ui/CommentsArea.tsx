@@ -1,9 +1,9 @@
 import { useGetCommentsById } from "@/api/comments/queries";
 import { ROUTES } from "@/routes/routesPath";
 import { useParams } from "@tanstack/react-router";
-import { Spinner } from "./spinner";
+import { Spinner } from "./Spinner";
 import { Comment } from "./Comment";
-import { Textarea } from "./textarea";
+import { Textarea } from "./Textarea";
 import { useAuth } from "@/app/context/UserContext";
 import { cn } from "@/lib/utils";
 export const CommentsArea = () => {

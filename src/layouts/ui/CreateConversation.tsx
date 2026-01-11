@@ -1,20 +1,13 @@
-import { Activity, ChangeEvent, FormEvent, useState } from "react";
-import { cn } from "@/lib/utils";
-import { type ProfileFormType } from "@/types/types";
-import { Button, Checkbox, ScrollArea, Separator, Spinner } from "@/components";
+import { Activity, useState } from "react";
+import { AddPostForm, Button } from "@/components";
 import { DialogComponents } from "@/components";
 import { DrawerComponents } from "@/components";
-import { Input } from "@/components";
-import { Label } from "@/components";
 import PlusIcon from "@/assets/plus-icon.svg?react";
-import { useMediaQuery } from "@/hooks/useMedaiQuery";
-import { AddPostFields, useGetAllTags } from "@/api/conversation/queries";
-import React from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useAuth } from "@/app/context/UserContext";
 import { useNavigate } from "@tanstack/react-router";
 import { ROUTES } from "@/routes/routesPath";
 import { DialogClose } from "@radix-ui/react-dialog";
-import { addPost } from "@/api/conversation/queries";
 
 export function CreateConversation() {
   const [open, setOpen] = useState<boolean>(false);
@@ -118,84 +111,5 @@ export function CreateConversation() {
         </DrawerComponents.DrawerContent>
       )}
     </DrawerComponents.Drawer>
-  );
-}
-
-function AddPostForm({ className, userId }: ProfileFormType) {
-  const { tags, tagsLoading } = useGetAllTags();
-  const [selectedTags, setSelected] = useState<string[]>([]);
-  const [data, setData] = useState<AddPostFields>({
-    userId: userId || null,
-    body: "",
-    tags: [],
-    title: "",
-  });
-  const handleAddPost = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    addPost(data);
-  };
-  const handleSelect = (tag: string) => {
-    if (selectedTags.includes(tag)) {
-      const newTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
-      setSelected(newTags);
-      setData((prev) => ({ ...prev, tags: newTags }));
-    } else {
-      setSelected([...selectedTags, tag]);
-      setData((prev) => ({ ...prev, tags: selectedTags }));
-    }
-  };
-  if (tagsLoading) {
-    return <Spinner className="size-10" />;
-  }
-  return (
-    <form
-      className={cn("grid items-start gap-6", className)}
-      onSubmit={(e) => handleAddPost(e)}
-    >
-      <div className="grid gap-3">
-        <Label htmlFor="title">Title</Label>
-        <Input
-          type="title"
-          id="title"
-          placeholder="title"
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setData((prev) => ({ ...prev, title: e.target.value }))
-          }
-        />
-      </div>
-      <div className="grid gap-3">
-        <Label htmlFor="description">Description</Label>
-        <Input
-          id="description"
-          placeholder="description"
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setData((prev) => ({ ...prev, body: e.target.value }))
-          }
-        />
-      </div>
-      <div className="flex flex-row gap-1 items-center  overflow-scroll">
-        Tags{" "}
-        {selectedTags &&
-          selectedTags.map((tag, index) => (
-            <p key={index} className="bg-tag-bg text-tag-text p-1 rounded-xl">
-              {tag}
-            </p>
-          ))}
-      </div>
-      <ScrollArea className="rounded-md border h-30">
-        <div className="p-4">
-          {tags?.map((tag: string, index: number) => (
-            <React.Fragment key={index}>
-              <div className="flex flex-row gap-2 items-center justify-start">
-                <Checkbox id={tag} onCheckedChange={() => handleSelect(tag)} />
-                <Label htmlFor={tag}>{tag}</Label>
-              </div>
-              <Separator />
-            </React.Fragment>
-          ))}
-        </div>
-      </ScrollArea>
-      <Button type="submit">Save changes</Button>
-    </form>
   );
 }

@@ -1,6 +1,6 @@
 import { AlertCircleIcon } from "lucide-react";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/Alert";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { AlertMenuProps } from "@/types/interfaces";

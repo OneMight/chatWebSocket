@@ -1,5 +1,5 @@
 import { useAuth } from "@/app/context/UserContext";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/Avatar";
 import LocationIcon from "@/assets/location-icon.svg?react";
 import { EditProfileDrawer } from "./EditProfileDrawer";
 export const ProfileTitle = () => {

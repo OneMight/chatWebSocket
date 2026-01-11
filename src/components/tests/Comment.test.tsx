@@ -11,13 +11,13 @@ const comments = {
 };
 describe("Correct Comment component render", () => {
   test("Props filled", () => {
-    render(<Comment comm={comments} />);
+    render(<Comment data={comments} />);
     expect(screen.getByText("This is a good idea")).toBeDefined();
     expect(screen.getByText("Josh Smith")).toBeDefined();
   });
 });
 
 it("Correct render with snapshot test", () => {
-  const component = render(<Comment comm={comments} />);
+  const component = render(<Comment data={comments} />);
   expect(component).toMatchSnapshot();
 });

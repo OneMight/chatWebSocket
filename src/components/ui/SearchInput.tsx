@@ -3,8 +3,8 @@ import { Input } from "@/components/index";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import { useSearchByInput } from "@/api/conversation/queries";
 import React from "react";
-import { ScrollArea } from "./scroll-area";
-import { Spinner } from "./spinner";
+import { ScrollArea } from "./ScrollArea";
+import { Spinner } from "./Spinner";
 import { Link } from "@tanstack/react-router";
 import { ROUTES } from "@/routes/routesPath";
 
