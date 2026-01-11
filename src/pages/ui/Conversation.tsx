@@ -24,7 +24,7 @@ export const Conversation = () => {
           <BackIcon />
           Back to home
         </Button>
-        <Post post={postData} key={postData?.id} />
+        <Post data={postData} key={postData?.id} />
         <CommentsArea />
       </section>
 

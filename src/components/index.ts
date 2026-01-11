@@ -14,46 +14,11 @@ import { Spinner } from "./ui/spinner";
 import { CommentsArea } from "./ui/CommentsArea";
 import { Textarea } from "./ui/textarea";
 import { Chat } from "@/layouts/ui/Chat";
-import {
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-} from "./ui/Form";
+import * as FormComponents from "./ui/Form";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerPortal,
-  DrawerTitle,
-  DrawerTrigger,
-} from "./ui/drawer";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
-import {
-  DropdownMenu,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+import * as DrawerComponents from "./ui/drawer";
+import * as DialogComponents from "./ui/dialog";
+import * as DropdownComponents from "./ui/dropdown-menu";
 export { Tabs, TabsList, TabsTrigger, TabsContent };
 export { ScrollArea, ScrollBar };
 export {
@@ -72,43 +37,8 @@ export {
   CommentsArea,
   Textarea,
   Chat,
-};
-export {
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-};
-export {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerPortal,
-  DrawerTitle,
-  DrawerTrigger,
-};
-export {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-  DialogTrigger,
-};
-export {
-  DropdownMenu,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
+  DrawerComponents,
+  FormComponents,
+  DialogComponents,
+  DropdownComponents,
 };

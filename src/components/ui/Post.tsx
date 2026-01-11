@@ -6,35 +6,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import type { PostData } from "@/api/conversation/queries";
 import { useGetImageOfUser } from "@/api/users/queries";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LikeIcon from "@/assets/like-icon.svg?react";
 import { ButtonIcon } from "./ButtonIcon";
-
-interface PostProps {
-  post: PostData;
-}
-
-export function Post({ post }: PostProps) {
-  const { data } = useGetImageOfUser(post.userId);
+import { PostData } from "@/api/conversation/queries";
+import { ComponentProps } from "@/types/interfaces";
+export function Post({ data }: ComponentProps<PostData>) {
+  const { postData } = useGetImageOfUser(data.userId);
 
   return (
     <Card>
       <CardHeader>
         <CardTitle className="text-black-text flex flex-row gap-2 items-center">
           <Avatar>
-            <AvatarImage alt="user-image" src={data?.image} />
+            <AvatarImage alt="user-image" src={postData?.image} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-          {data?.username}
+          {postData?.username}
         </CardTitle>
-        <CardDescription>{post?.title}</CardDescription>
+        <CardDescription>{data?.title}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <p>{post.body}</p>
+        <p>{data.body}</p>
         <div className="flex flex-row gap-3 items-center">
-          {post.tags.map((tag, index) => (
+          {data.tags.map((tag, index) => (
             <div key={index} className="bg-tag-bg rounded-xl py-1 px-3">
               <p className="text-tag-text ">{tag}</p>
             </div>
@@ -42,7 +38,7 @@ export function Post({ post }: PostProps) {
         </div>
       </CardContent>
       <CardFooter className="flex gap-4">
-        <ButtonIcon initialCount={post.reactions.likes}>
+        <ButtonIcon initialCount={data.reactions.likes}>
           {(isActive) => (
             <LikeIcon
               aria-label="like-icon"

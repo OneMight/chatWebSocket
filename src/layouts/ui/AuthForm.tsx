@@ -1,13 +1,4 @@
-import {
-  Button,
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Input,
-} from "@/components";
+import { Button, FormComponents, Input } from "@/components";
 import type React from "react";
 import { useForm } from "react-hook-form";
 import { getToken } from "@/api/users/queries";
@@ -47,16 +38,16 @@ export function AuthForm({ setError }: AuthFormProp) {
     setPassword(e.target.value);
   };
   return (
-    <Form {...form}>
+    <FormComponents.Form {...form}>
       <form className="space-y-8" onSubmit={(e) => handleOnSubmit(e)}>
-        <FormField
+        <FormComponents.FormField
           control={form.control}
           name="username"
           render={() => (
             <>
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
+              <FormComponents.FormItem>
+                <FormComponents.FormLabel>Username</FormComponents.FormLabel>
+                <FormComponents.FormControl>
                   <Input
                     id={"username"}
                     value={username}
@@ -64,12 +55,12 @@ export function AuthForm({ setError }: AuthFormProp) {
                     className="bg-bg-input border-none px-7"
                     onChange={handleSetUsername}
                   />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
+                </FormComponents.FormControl>
+                <FormComponents.FormMessage />
+              </FormComponents.FormItem>
+              <FormComponents.FormItem>
+                <FormComponents.FormLabel>Password</FormComponents.FormLabel>
+                <FormComponents.FormControl>
                   <Input
                     id={"password"}
                     onChange={handleSetPassword}
@@ -79,8 +70,8 @@ export function AuthForm({ setError }: AuthFormProp) {
                     className="bg-bg-input border-none px-7"
                     type="password"
                   />
-                </FormControl>
-              </FormItem>
+                </FormComponents.FormControl>
+              </FormComponents.FormItem>
             </>
           )}
         />
@@ -88,6 +79,6 @@ export function AuthForm({ setError }: AuthFormProp) {
           Sign In
         </Button>
       </form>
-    </Form>
+    </FormComponents.Form>
   );
 }

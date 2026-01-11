@@ -1,31 +1,9 @@
 import { Activity, ChangeEvent, FormEvent, useState } from "react";
 import { cn } from "@/lib/utils";
-import {
-  Button,
-  Checkbox,
-  DialogFooter,
-  ScrollArea,
-  Separator,
-  Spinner,
-} from "@/components";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { type ProfileFormType } from "@/types/types";
+import { Button, Checkbox, ScrollArea, Separator, Spinner } from "@/components";
+import { DialogComponents } from "@/components";
+import { DrawerComponents } from "@/components";
 import { Input } from "@/components";
 import { Label } from "@/components";
 import PlusIcon from "@/assets/plus-icon.svg?react";
@@ -50,99 +28,104 @@ export function CreateConversation() {
 
   if (isDesktop) {
     return (
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
+      <DialogComponents.Dialog open={open} onOpenChange={setOpen}>
+        <DialogComponents.DialogTrigger asChild>
           <Button className=" hover:bg-hover-orange w-full text-white-color cursor-pointer flex flex-row gap-2 items-center transition-colors">
             <PlusIcon />
             Start a New Conversation
           </Button>
-        </DialogTrigger>
+        </DialogComponents.DialogTrigger>
         {context?.isAuthenticated ? (
-          <DialogContent className="sm:max-w-106.25 bg-white-color">
-            <DialogHeader>
-              <DialogTitle>Create conversation</DialogTitle>
-              <DialogDescription>
+          <DialogComponents.DialogContent className="sm:max-w-106.25 bg-white-color">
+            <DialogComponents.DialogHeader>
+              <DialogComponents.DialogTitle>
+                Create conversation
+              </DialogComponents.DialogTitle>
+              <DialogComponents.DialogDescription>
                 Create a new conversation here. Click save when you&apos;re
                 done.
-              </DialogDescription>
-            </DialogHeader>
+              </DialogComponents.DialogDescription>
+            </DialogComponents.DialogHeader>
             <Activity>
               <AddPostForm userId={context.user?.id || null} />
             </Activity>
-          </DialogContent>
+          </DialogComponents.DialogContent>
         ) : (
-          <DialogContent className="bg-white-color">
-            <DialogHeader className="text-left">
-              <DialogTitle>Create conversation</DialogTitle>
-              <DialogDescription>
+          <DialogComponents.DialogContent className="bg-white-color">
+            <DialogComponents.DialogHeader className="text-left">
+              <DialogComponents.DialogTitle>
+                Create conversation
+              </DialogComponents.DialogTitle>
+              <DialogComponents.DialogDescription>
                 You need to be authorized to create conversation.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter className="pt-2">
+              </DialogComponents.DialogDescription>
+            </DialogComponents.DialogHeader>
+            <DialogComponents.DialogFooter className="pt-2">
               <DialogClose asChild>
                 <Button variant="outline" onClick={handleDirectToAuth}>
                   Login now
                 </Button>
               </DialogClose>
-            </DialogFooter>
-          </DialogContent>
+            </DialogComponents.DialogFooter>
+          </DialogComponents.DialogContent>
         )}
-      </Dialog>
+      </DialogComponents.Dialog>
     );
   }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
+    <DrawerComponents.Drawer open={open} onOpenChange={setOpen}>
+      <DrawerComponents.DrawerTrigger asChild>
         <Button className="w-full hover:bg-hover-orange text-white-color cursor-pointer flex flex-row gap-2 items-center transition-colors">
           <PlusIcon />
           Start a New Conversation
         </Button>
-      </DrawerTrigger>
+      </DrawerComponents.DrawerTrigger>
       {context?.isAuthenticated ? (
-        <DrawerContent className="bg-white-color">
-          <DrawerHeader className="text-left">
-            <DrawerTitle>Create conversation</DrawerTitle>
-            <DrawerDescription>
+        <DrawerComponents.DrawerContent className="bg-white-color">
+          <DrawerComponents.DrawerHeader className="text-left">
+            <DrawerComponents.DrawerTitle>
+              Create conversation
+            </DrawerComponents.DrawerTitle>
+            <DrawerComponents.DrawerDescription>
               Create a new conversation here. Click save when you&apos;re done.
-            </DrawerDescription>
-          </DrawerHeader>
+            </DrawerComponents.DrawerDescription>
+          </DrawerComponents.DrawerHeader>
           <Activity>
             <AddPostForm
               className="px-4 mb-2"
               userId={context.user?.id || null}
             />
           </Activity>
-        </DrawerContent>
+        </DrawerComponents.DrawerContent>
       ) : (
-        <DrawerContent className="bg-white-color">
-          <DrawerHeader className="text-left">
-            <DrawerTitle>Create conversation</DrawerTitle>
-            <DrawerDescription>
+        <DrawerComponents.DrawerContent className="bg-white-color">
+          <DrawerComponents.DrawerHeader className="text-left">
+            <DrawerComponents.DrawerTitle>
+              Create conversation
+            </DrawerComponents.DrawerTitle>
+            <DrawerComponents.DrawerDescription>
               You need to be authorized to create conversation.
-            </DrawerDescription>
-          </DrawerHeader>
-          <DrawerFooter className="pt-2">
-            <DrawerClose asChild>
+            </DrawerComponents.DrawerDescription>
+          </DrawerComponents.DrawerHeader>
+          <DrawerComponents.DrawerFooter className="pt-2">
+            <DrawerComponents.DrawerClose asChild>
               <Button variant="outline" onClick={handleDirectToAuth}>
                 Login now
               </Button>
-            </DrawerClose>
-          </DrawerFooter>
-        </DrawerContent>
+            </DrawerComponents.DrawerClose>
+          </DrawerComponents.DrawerFooter>
+        </DrawerComponents.DrawerContent>
       )}
-    </Drawer>
+    </DrawerComponents.Drawer>
   );
 }
-type ProfileFormType = {
-  className?: string;
-  userId: number | null;
-};
+
 function AddPostForm({ className, userId }: ProfileFormType) {
   const { tags, tagsLoading } = useGetAllTags();
   const [selectedTags, setSelected] = useState<string[]>([]);
   const [data, setData] = useState<AddPostFields>({
-    userId: userId,
+    userId: userId || null,
     body: "",
     tags: [],
     title: "",

@@ -35,7 +35,7 @@ export default function Home() {
                   to={ROUTES.POSTPAGE}
                   params={{ postId: String(post.id) }}
                 >
-                  <Post post={post} />
+                  <Post data={post} />
                 </Link>
               ))}
             </div>

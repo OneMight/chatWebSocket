@@ -141,12 +141,16 @@ export const useGetImageOfUser = (id: number) => {
     );
     return response.json();
   };
-  const { data, isLoading, isError } = useQuery({
+  const {
+    data: postData,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["getUserImage", id],
     queryFn: getUserImage,
   });
   return {
-    data,
+    postData,
     isLoading,
     isError,
   };

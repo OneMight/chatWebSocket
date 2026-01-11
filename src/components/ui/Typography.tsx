@@ -1,8 +1,4 @@
-type Typography = {
-  children: string;
-  className?: string;
-};
-
+import { type Typography } from "@/types/types";
 export function TypographyH3({ children, className }: Typography) {
   return (
     <h3

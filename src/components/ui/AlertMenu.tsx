@@ -3,13 +3,7 @@ import { AlertCircleIcon } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-interface AlertMenuProps {
-  title: string;
-  className?: string;
-  description: string;
-  duration: number;
-  setError: (value: boolean) => void;
-}
+import { AlertMenuProps } from "@/types/interfaces";
 export const AlertMenu = ({
   title,
   className,

@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/index";
-
-interface ButtonIconProps {
-  children: (isActive: boolean) => React.ReactNode;
-  initialCount: number;
-}
+import { ButtonIconProps } from "@/types/interfaces";
 
 export function ButtonIcon({ children, initialCount }: ButtonIconProps) {
   const [count, setCount] = useState(initialCount);

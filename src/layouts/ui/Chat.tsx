@@ -1,56 +1,19 @@
 import { useAuth } from "@/app/context/UserContext";
-import { Button, DropdownMenuContent, Input } from "@/components";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components";
-import { gql, ApolloClient } from "@apollo/client";
+import { Button, Input } from "@/components";
+import { DropdownComponents } from "@/components";
+import { ApolloClient } from "@apollo/client";
 import { useQuery, useMutation, useSubscription } from "@apollo/client/react";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import SendMessageIcon from "@/assets/send-message-icon.svg?react";
 import { ChatView } from "./ChatView";
-type Message = {
-  id: string;
-  username: string;
-  data: string;
-  created_at: string;
-};
-export type GetMessagesData = {
-  messages: Message[];
-};
-type SendMessageData = {
-  insert_messages_one: {
-    id: string;
-  };
-};
-type SendMessageVars = {
-  user: string;
-  content: string;
-};
-
-const GET_MESSAGES = gql`
-  query GetMessages {
-    messages(order_by: { created_at: asc }) {
-      id
-      username
-      data
-      created_at
-    }
-  }
-`;
-const MESSAGES_SUBSCRIPTION = gql`
-  subscription OnMessageAdded {
-    messages(order_by: { created_at: desc }, limit: 1) {
-      id
-      username
-      data
-    }
-  }
-`;
-const POST_MESSAGE = gql`
-  mutation SendMessage($user: String!, $content: String!) {
-    insert_messages_one(object: { username: $user, data: $content }) {
-      id
-    }
-  }
-`;
+import {
+  GET_MESSAGES,
+  GetMessagesData,
+  MESSAGES_SUBSCRIPTION,
+  POST_MESSAGE,
+  SendMessageData,
+  SendMessageVars,
+} from "@/api/chat/gqlQuerries";
 
 export const Chat = () => {
   const context = useAuth();
@@ -63,7 +26,7 @@ export const Chat = () => {
         refetch();
       },
       onError: (err) => {
-        console.error("Ошибка при отправке:", err);
+        throw new Error(`Ошибка при отправке: ${err}`);
       },
     },
   );
@@ -85,18 +48,18 @@ export const Chat = () => {
       });
       setMessageContent("");
     } catch (e) {
-      console.error(e);
+      throw new Error(e as string);
     }
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="text-black-text fixed bottom-4 right-4 cursor-pointer w-12 rounded-full bg-bg-button p-2 z-20">
+    <DropdownComponents.DropdownMenu>
+      <DropdownComponents.DropdownMenuTrigger className="text-black-text fixed bottom-4 right-4 cursor-pointer w-12 rounded-full bg-bg-button p-2 z-20">
         <SendMessageIcon className="w-8" />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-0">
+      </DropdownComponents.DropdownMenuTrigger>
+      <DropdownComponents.DropdownMenuContent className="p-0">
         <div className="w-80 flex flex-col gap-4 p-4 rounded bg-white-color">
-          <ChatView data={data} />
+          {data && <ChatView data={data} />}
           <div className="flex gap-2">
             <Input
               id="SendMessage"
@@ -118,7 +81,7 @@ export const Chat = () => {
             </Button>
           </div>
         </div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownComponents.DropdownMenuContent>
+    </DropdownComponents.DropdownMenu>
   );
 };

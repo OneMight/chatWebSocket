@@ -39,7 +39,7 @@ export const UserTabs = () => {
               key={post.id}
               params={{ postId: String(post.id) }}
             >
-              <Post post={post} />
+              <Post data={post} />
             </Link>
           ))
         ) : (

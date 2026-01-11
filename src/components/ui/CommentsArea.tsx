@@ -1,4 +1,4 @@
-import { useGetCommentsById } from "@/api/comments/querries";
+import { useGetCommentsById } from "@/api/comments/queries";
 import { ROUTES } from "@/routes/routesPath";
 import { useParams } from "@tanstack/react-router";
 import { Spinner } from "./spinner";
@@ -27,7 +27,7 @@ export const CommentsArea = () => {
             placeholder="Write your oppinion here!"
           />
           {data.comments.map((comm) => (
-            <Comment comm={comm} key={comm.id} />
+            <Comment data={comm} key={comm.id} />
           ))}
         </>
       ) : (

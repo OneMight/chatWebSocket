@@ -1,23 +1,21 @@
-import type { Comments } from "@/api/comments/querries";
 import { TypographyH3 } from "./Typography";
 import { ButtonIcon } from "./ButtonIcon";
 import LikeIcon from "@/assets/like-icon.svg?react";
-interface CommentProp {
-  comm: Comments;
-}
-export const Comment = ({ comm }: CommentProp) => {
+import { ComponentProps } from "@/types/interfaces";
+import { Comments } from "@/api/comments/queries";
+export const Comment = ({ data }: ComponentProps<Comments>) => {
   return (
     <div
-      key={comm.id}
+      key={data.id}
       className="w-full flex flex-row justify-between items-end gap-3 rounded-2xl bg-bg-app p-3"
     >
       <div className="flex flex-col gap-3">
         <TypographyH3 className="text-black-text">
-          {comm.user.fullName}
+          {data.user.fullName}
         </TypographyH3>
-        <p>{comm.body}</p>
+        <p>{data.body}</p>
       </div>
-      <ButtonIcon initialCount={comm.likes}>
+      <ButtonIcon initialCount={data.likes}>
         {(isActive) => (
           <LikeIcon
             aria-label="like-icon"
