@@ -38,7 +38,7 @@ function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
         {...props}
       />
       <Button
-        className="absolute bottom-1 right-1 rounded-xl cursor-pointer  "
+        className="absolute bottom-1 right-1 rounded-xl"
         onClick={handleOnClick}
       >
         <SendIcon />

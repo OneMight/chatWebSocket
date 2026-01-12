@@ -39,7 +39,7 @@ export default function Header() {
         <Button
           data-testid="login-button"
           onClick={handleDirectAuth}
-          className="hover:shadow-xl cursor-pointer"
+          className="hover:shadow-xl"
         >
           <ExitIcon />
           Join us

@@ -27,7 +27,7 @@ export default function Auth() {
         <Card.Card className="border-transparent w-full md:w-1/2 shadow-none flex flex-col p-9">
           <Card.CardHeader className="p-0">
             <Button
-              className="bg-transparent text-black-text justify-between cursor-pointer hover:bg-transparent hover:text-bg-button w-30  has-[>svg]:px-0"
+              className="bg-transparent text-black-text justify-between hover:bg-transparent hover:text-bg-button w-30  has-[>svg]:px-0"
               onClick={handleHomeNavigate}
             >
               <BackIcon />

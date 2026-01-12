@@ -12,7 +12,7 @@ export function EditProfileDrawer() {
         <DialogComponents.DialogTrigger asChild>
           <Button
             variant="outline"
-            className=" hover:text-hover-orange text-black-text cursor-pointer flex flex-row gap-2 items-center"
+            className=" hover:text-hover-orange text-black-text flex flex-row gap-2 items-center"
           >
             <SettingsIcon />
             Edit Profile

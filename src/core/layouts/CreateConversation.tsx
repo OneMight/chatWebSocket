@@ -22,7 +22,7 @@ export function CreateConversation() {
     return (
       <DialogComponents.Dialog open={open} onOpenChange={setOpen}>
         <DialogComponents.DialogTrigger asChild>
-          <Button className=" hover:bg-hover-orange w-full text-white-color cursor-pointer flex flex-row gap-2 items-center transition-colors">
+          <Button className=" hover:bg-hover-orange w-full text-white-color flex flex-row gap-2 items-center transition-colors">
             <PlusIcon />
             Start a New Conversation
           </Button>
@@ -68,7 +68,7 @@ export function CreateConversation() {
   return (
     <DrawerComponents.Drawer open={open} onOpenChange={setOpen}>
       <DrawerComponents.DrawerTrigger asChild>
-        <Button className="w-full hover:bg-hover-orange text-white-color cursor-pointer flex flex-row gap-2 items-center transition-colors">
+        <Button className="w-full hover:bg-hover-orange text-white-color flex flex-row gap-2 items-center transition-colors">
           <PlusIcon />
           Start a New Conversation
         </Button>

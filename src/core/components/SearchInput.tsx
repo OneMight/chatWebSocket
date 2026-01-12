@@ -15,7 +15,6 @@ export const SearchInput = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { searchedPosts, postsLoading } =
     useSearchByInput(debouncedSearch) || [];
-
   const condition = isOpen && searchedPosts?.posts.length != 0;
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -40,6 +39,7 @@ export const SearchInput = () => {
       clearTimeout(handler);
     };
   }, [search]);
+
   return (
     <div className="revative" ref={containerRef}>
       <Input
@@ -55,13 +55,16 @@ export const SearchInput = () => {
       {condition && (
         <ScrollArea
           data-testid="OpenedSearch"
-          className="absolute flex flex-col items-center justify-center top-13 h-50 bg-white z-20 w-112.5 rounded-xl"
+          className="absolute top-13 h-auto bg-white z-20 w-112.5 rounded-xl *:data-[slot=scroll-area-viewport]:h-auto
+    *:data-[slot=scroll-area-viewport]:max-h-50"
           style={{ position: "absolute" }}
         >
           {postsLoading ? (
-            <Spinner className="size-10" />
+            <div className="size-full flex items-center justify-center">
+              <Spinner className="size-10" />
+            </div>
           ) : (
-            searchedPosts?.posts.map((post) => (
+            searchedPosts?.posts.map((post, index) => (
               <React.Fragment key={post.id}>
                 <Link
                   to={ROUTES.POSTPAGE}
@@ -71,7 +74,9 @@ export const SearchInput = () => {
                   <p className="font-bold  w-full truncate">{post.title}</p>
                   <p className=" w-full truncate">{post.body}</p>
                 </Link>
-                <Separator className="h-0.5 bg-black" />
+                {index !== searchedPosts.posts.length - 1 && (
+                  <Separator className="h-0.5 bg-black" />
+                )}
               </React.Fragment>
             ))
           )}

@@ -19,7 +19,7 @@ export const Conversation = () => {
     <main className="flex flex-row gap-6 justify-between items-start w-full">
       <section className="flex flex-col items-start justify-center gap-4 w-full sm:w-2/3">
         <Button
-          className="bg-transparent text-black-text justify-between cursor-pointer hover:bg-transparent hover:text-bg-button w-30  has-[>svg]:px-0"
+          className="bg-transparent text-black-text justify-between hover:bg-transparent hover:text-bg-button w-30  has-[>svg]:px-0"
           onClick={handleHomeNavigate}
         >
           <BackIcon />

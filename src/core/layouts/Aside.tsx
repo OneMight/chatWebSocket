@@ -11,7 +11,7 @@ export const Aside = ({ className }: AsideProp) => {
           Grab a virtual cup of coffee and join the conversation. This is a safe
           space for creativity and connection.
         </p>
-        <Button className=" text-bg-button hover:bg-hover-orange hover:text-black rounded-xl bg-bg-app cursor-pointer">
+        <Button className=" text-bg-button hover:bg-white-color hover:text-black rounded-xl bg-bg-app">
           Read Guidlines
         </Button>
       </div>
