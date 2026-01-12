@@ -1,10 +1,11 @@
 import { Suspense, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { Post, Spinner, TypographyH3 } from "@/components";
-import { Aside } from "@/layouts";
-import { useGetPosts } from "@/api/conversation/queries";
-import { CreateConversation } from "@/layouts";
-import { ROUTES } from "@/routes/routesPath";
+import { Post } from "@/modules/conservation/index";
+import { Spinner, TypographyH3 } from "@/core/index";
+import { Aside } from "@/modules/home/index";
+import { useGetPosts } from "@/core/api/conversation/queries";
+import { CreateConversation } from "@/core/index";
+import { ROUTES } from "@/core/routes/routesPath";
 import { Link } from "@tanstack/react-router";
 
 export default function Home() {

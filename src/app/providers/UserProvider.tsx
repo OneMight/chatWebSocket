@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useVerifyToken } from "@/api/users/queries";
-import { handleGetToken } from "@/utils/cookiesFunc";
+import { useVerifyToken } from "@/core/api/users/queries";
+import { handleGetToken } from "@/core/libs/cookiesFunc";
 import { AuthContext } from "../context/UserContext";
 type ProviderProp = {
   children: React.ReactNode;

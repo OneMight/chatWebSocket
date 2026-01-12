@@ -1,7 +1,7 @@
 import { useAuth } from "@/app/context/UserContext";
-import { Spinner } from "@/components";
-import { ProfileTitle } from "@/layouts";
-import { UserTabs } from "@/layouts/ui/UserTabs";
+import { Spinner } from "@/core/index";
+import { ProfileTitle } from "@/modules/profile/index";
+import { UserTabs } from "@/modules/profile/index";
 
 export const Profile = () => {
   const context = useAuth();

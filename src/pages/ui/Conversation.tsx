@@ -1,9 +1,10 @@
-import { Button, CommentsArea, Post, Spinner } from "@/components";
-import { ROUTES } from "@/routes/routesPath";
+import { Button, Spinner } from "@/core/index";
+import { CommentsArea, Post } from "@/modules/conservation/index";
+import { ROUTES } from "@/core/routes/routesPath";
 import { useNavigate, useParams } from "@tanstack/react-router";
 import BackIcon from "@/assets/back-icon.svg?react";
-import { Aside } from "@/layouts";
-import { useGetPostById } from "@/api/conversation/queries";
+import { Aside } from "@/core/index";
+import { useGetPostById } from "@/core/api/conversation/queries";
 export const Conversation = () => {
   const navigate = useNavigate();
   const { postId } = useParams({ from: ROUTES.POSTPAGE });

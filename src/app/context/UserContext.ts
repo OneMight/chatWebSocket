@@ -1,4 +1,4 @@
-import type { UserData } from "@/api/users/queries";
+import type { UserData } from "@/core/api/users/queries";
 import { useContext, createContext } from "react";
 export interface AuthContextType {
   user: UserData | null;
