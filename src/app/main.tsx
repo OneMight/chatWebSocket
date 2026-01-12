@@ -8,7 +8,7 @@ import {
 } from "@/app/providers/";
 import { Suspense } from "react";
 import { UserProvider } from "./providers/UserProvider";
-import { Spinner } from "@/components";
+import { Spinner } from "@/core/index";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

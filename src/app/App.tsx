@@ -1,12 +1,12 @@
-import { Header } from "@/layouts";
-import { ROUTES } from "@/routesPath";
+import { Header } from "@/core/index";
+import { ROUTES } from "@/core/routes/routesPath";
 import { Outlet, useLocation } from "@tanstack/react-router";
 import { useAuth } from "./context/UserContext";
-import { Spinner } from "@/components";
+import { Spinner } from "@/core/index";
 import { Suspense } from "react";
 import React from "react";
 const Chat = React.lazy(() =>
-  import("@/layouts/").then((module) => ({ default: module.Chat })),
+  import("@/modules/chat/index").then((module) => ({ default: module.Chat })),
 );
 export default function App() {
   const path = useLocation();
