@@ -2,7 +2,7 @@ import { Suspense, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { Post } from "@/modules/conservation/index";
 import { Spinner, TypographyH3 } from "@/core/index";
-import { Aside } from "@/modules/home/index";
+import { Aside } from "@/core/index";
 import { useGetPosts } from "@/core/api/conversation/queries";
 import { CreateConversation } from "@/core/index";
 import { ROUTES } from "@/core/routes/routesPath";

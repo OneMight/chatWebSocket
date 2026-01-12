@@ -12,3 +12,6 @@ export interface ButtonIconProps {
 export interface ComponentProps<T> {
   data: T;
 }
+export interface AsideProp {
+  className: string;
+}
