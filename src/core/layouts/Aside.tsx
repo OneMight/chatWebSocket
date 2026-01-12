@@ -1,6 +1,6 @@
 import { Button, TypographyH3 } from "@/core/index";
 import { cn } from "@/core/libs/utils";
-import { AsideProp } from "@/modules/home/types/interfaces";
+import { AsideProp } from "../types/interfaces";
 
 export const Aside = ({ className }: AsideProp) => {
   return (
