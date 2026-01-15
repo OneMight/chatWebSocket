@@ -2,7 +2,7 @@ import { TypographyH3 } from "@/core/index";
 import { ButtonIcon } from "@/core/index";
 import LikeIcon from "@/assets/like-icon.svg?react";
 import { ComponentProps } from "@/core/types/interfaces";
-import { Comments } from "@/modules/conservation/api/queries";
+import { Comments } from "@/modules/conversation/api/queries";
 export const Comment = ({ data }: ComponentProps<Comments>) => {
   return (
     <div

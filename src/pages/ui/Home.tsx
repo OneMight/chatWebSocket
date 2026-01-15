@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { Post } from "@/modules/conservation/index";
+import { Post } from "@/modules/conversation/index";
 import { Spinner, TypographyH3 } from "@/core/index";
 import { Aside } from "@/core/index";
 import { useGetPosts } from "@/core/api/conversation/queries";

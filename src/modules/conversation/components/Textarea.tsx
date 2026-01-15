@@ -4,7 +4,7 @@ import { cn } from "@/core/libs/utils";
 import { Button } from "../../../core/components/Button";
 import SendIcon from "@/assets/send-icon.svg?react";
 import { useState, type ChangeEvent } from "react";
-import { postComment } from "@/modules/conservation/api/queries";
+import { postComment } from "@/modules/conversation/api/queries";
 import { useAuth } from "@/app/context/UserContext";
 import { useParams } from "@tanstack/react-router";
 import { ROUTES } from "@/core/routes/routesPath";

@@ -7,7 +7,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/core/index";
-import { Post } from "@/modules/conservation/index";
+import { Post } from "@/modules/conversation/index";
 import { CreateConversation } from "@/core/index";
 import { Link } from "@tanstack/react-router";
 import { ROUTES } from "@/core/routes/routesPath";

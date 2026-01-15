@@ -1,4 +1,4 @@
-import { useGetCommentsById } from "@/modules/conservation/api/queries";
+import { useGetCommentsById } from "@/modules/conversation/api/queries";
 import { ROUTES } from "@/core/routes/routesPath";
 import { useParams } from "@tanstack/react-router";
 import { Spinner } from "@/core/index";

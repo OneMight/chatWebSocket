@@ -1,5 +1,5 @@
 import { Activity, useState } from "react";
-import { AddPostForm } from "@/modules/conservation/index";
+import { AddPostForm } from "@/modules/conversation/index";
 import { DialogComponents, DrawerComponents, Button } from "@/core/index";
 import PlusIcon from "@/assets/plus-icon.svg?react";
 import { useMediaQuery } from "@/core/hooks/useMediaQuery";

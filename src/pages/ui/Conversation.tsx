@@ -1,5 +1,5 @@
 import { Button, Spinner } from "@/core/index";
-import { CommentsArea, Post } from "@/modules/conservation/index";
+import { CommentsArea, Post } from "@/modules/conversation/index";
 import { ROUTES } from "@/core/routes/routesPath";
 import { useNavigate, useParams } from "@tanstack/react-router";
 import BackIcon from "@/assets/back-icon.svg?react";
